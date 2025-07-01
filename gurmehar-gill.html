@@ -1,0 +1,40 @@
+<!-- gurmehar-gill.html --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gurmehar Gill - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Gurmehar.jpg" alt="Gurmehar Gill">
+      </div>
+      <div class="profile-content">
+        <h1>Gurmehar Gill</h1>
+        <p class="role">Creative Director</p>
+        <div class="profile-bio">
+          <p>Hi my name is Gurmehar and I am a rising junior at ridge. I am the Creative Director for Hearts for Healing.</p>
+          <p>I believe my work with Hearts for Healing has the ability to bring widepread change and positivity to our community. My participation in sports such has soccer has helped me develop creative, leadership, and problem solving skills which I believe will help me make the most of my participation in this organization.</p>
+        </div>
+        <a href="../about.html#leadership" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="../script.js"></script>
+</body>
+</html>

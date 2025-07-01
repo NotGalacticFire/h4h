@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management Team - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* MANAGEMENT TEAM HERO STYLES */
+    .management-hero {
+      background: linear-gradient(135deg, #3498DB 0%, #2C3E50 50%, #9B59B6 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.3;
+    }
+    
+    .management-logo i {
+      font-size: 3rem;
+      margin: 0 1rem;
+      color: white;
+      text-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    
+    .moving-dots .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: moveDot 8s infinite linear;
+    }
+    
+    @keyframes moveDot {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(20px, 10px); }
+      50% { transform: translate(10px, 20px); }
+      75% { transform: translate(-10px, 15px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* TEAM PAGE STYLES */
+    .team-page {
+      padding: 4rem 0;
+      background-color: var(--light);
+    }
+    
+    .team-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .team-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .team-description {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* LEADERSHIP SECTION */
+    .leadership-section {
+      margin-bottom: 4rem;
+    }
+    
+    .leadership-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .leadership-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .officer-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+      transition: var(--transition-normal);
+      border-top: 5px solid #3498DB; /* Management team color */
+    }
+    
+    .officer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(52, 152, 219, 0.25);
+    }
+    
+    .officer-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #3498DB; /* Management team color */
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .officer-badge i {
+      font-size: 0.8rem;
+    }
+    
+    /* TEAM MEMBERS SECTION */
+    .members-section {
+      margin-top: 4rem;
+    }
+    
+    .members-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .members-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary-light);
+      padding-bottom: 0.5rem;
+    }
+    
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .member-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+    
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .member-card:hover .member-image {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-name {
+      color: #3498DB; /* Management team color */
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .member-bio {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #a8d8ff; /* Lighter management color */
+      color: #3498DB; /* Management team color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-normal);
+    }
+    
+    .social-link:hover {
+      background: #3498DB; /* Management team color */
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* EMPTY MEMBER PLACEHOLDER */
+    .empty-member {
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      border: 2px dashed #a8d8ff; /* Lighter management color */
+    }
+    
+    .empty-member i {
+      font-size: 2rem;
+      color: #3498DB; /* Management team color */
+      margin-bottom: 1rem;
+    }
+    
+    .empty-member p {
+      color: #3498DB; /* Management team color */
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .team-header h2 {
+        font-size: 2rem;
+      }
+      
+      .leadership-header h3,
+      .members-header h3 {
+        font-size: 1.5rem;
+      }
+      
+      .officers-grid,
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <!-- Hero Section -->
+  <!-- Management Team Hero with Leadership Animations -->
+<header class="hero management-hero">
+  <!-- Strategic Connection Web -->
+  <div class="connection-web">
+    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path class="web-line" d="M50,10 L90,50 L50,90 L10,50 Z" />
+      <path class="web-line" d="M20,20 L80,80" />
+      <path class="web-line" d="M80,20 L20,80" />
+      <path class="web-line" d="M50,10 L50,90" />
+      <path class="web-line" d="M10,50 L90,50" />
+    </svg>
+    <div class="connection-node node-1"></div>
+    <div class="connection-node node-2"></div>
+    <div class="connection-node node-3"></div>
+  </div>
+  
+  <!-- Floating Leadership Elements -->
+  <div class="floating-leadership">
+    <i class="fas fa-chess-king leadership-float"></i>
+    <i class="fas fa-bullseye leadership-float"></i>
+    <i class="fas fa-handshake leadership-float"></i>
+    <i class="fas fa-chart-network leadership-float"></i>
+  </div>
+  
+  <!-- Animated Organizational Chart -->
+  <div class="org-chart">
+    <div class="org-level top">
+      <div class="org-node"></div>
+    </div>
+    <div class="org-level middle">
+      <div class="org-node"></div>
+      <div class="org-node"></div>
+    </div>
+    <div class="org-level bottom">
+      <div class="org-node"></div>
+      <div class="org-node"></div>
+      <div class="org-node"></div>
+    </div>
+    <div class="org-connectors"></div>
+  </div>
+  
+  <div class="hero-content container">
+    <div class="management-logo">
+      <i class="fas fa-chess-queen logo-strategy"></i>
+      <i class="fas fa-project-diagram logo-org"></i>
+      <i class="fas fa-balance-scale logo-balance"></i>
+    </div>
+    
+    <h1 class="animate-on-scroll">Management Team</h1>
+    <p class="animate-on-scroll" style="transition-delay: 0.2s">Strategic visionaries orchestrating our mission</p>
+    
+    <!-- Leadership Pulse Animation -->
+    <div class="leadership-pulse">
+      <div class="pulse-center"></div>
+      <div class="pulse-ring pr-1"></div>
+      <div class="pulse-ring pr-2"></div>
+      <div class="pulse-ring pr-3"></div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Management Hero Container */
+  .management-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3498DB 0%, #2C3E50 50%, #9B59B6 100%);
+  }
+  
+  /* Strategic Connection Web */
+  .connection-web {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.7;
+  }
+  
+  .web-line {
+    stroke: rgba(255,255,255,0.2);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  
+  .connection-web path:nth-child(1) {
+    animation: drawWebLine 12s linear infinite;
+  }
+  
+  .connection-web path:nth-child(2) {
+    animation: drawWebLine 15s linear infinite 2s;
+  }
+  
+  .connection-web path:nth-child(3) {
+    animation: drawWebLine 18s linear infinite 4s;
+  }
+  
+  .connection-web path:nth-child(4) {
+    animation: drawWebLine 14s linear infinite 1s;
+  }
+  
+  .connection-web path:nth-child(5) {
+    animation: drawWebLine 16s linear infinite 3s;
+  }
+  
+  @keyframes drawWebLine {
+    to { stroke-dashoffset: 0; }
+  }
+  
+  .connection-node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(255,255,255,0.7);
+  }
+  
+  .node-1 {
+    top: 20%;
+    left: 20%;
+    animation: nodeGlow 3s ease infinite;
+  }
+  
+  .node-2 {
+    top: 70%;
+    left: 70%;
+    animation: nodeGlow 3.5s ease infinite 1s;
+  }
+  
+  .node-3 {
+    top: 40%;
+    left: 60%;
+    animation: nodeGlow 4s ease infinite 2s;
+  }
+  
+  @keyframes nodeGlow {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+  
+  /* Floating Leadership Elements */
+  .floating-leadership {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .leadership-float {
+    position: absolute;
+    color: rgba(255,255,255,0.15);
+    font-size: 2rem;
+    animation: leadershipFloat 20s linear infinite;
+  }
+  
+  .leadership-float:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .leadership-float:nth-child(2) {
+    top: 75%;
+    left: 80%;
+    animation-delay: 5s;
+  }
+  
+  .leadership-float:nth-child(3) {
+    top: 50%;
+    left: 15%;
+    animation-delay: 10s;
+  }
+  
+  .leadership-float:nth-child(4) {
+    top: 30%;
+    left: 85%;
+    animation-delay: 15s;
+  }
+  
+  @keyframes leadershipFloat {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.3; }
+    50% { transform: translate(40px, 30px) rotate(180deg); opacity: 0.2; }
+    90% { opacity: 0.3; }
+    100% { transform: translate(80px, 0) rotate(360deg); opacity: 0; }
+  }
+  
+  /* Organizational Chart Animation */
+  .org-chart {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
+    opacity: 0.5;
+  }
+  
+  .org-level {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .top { margin-bottom: 10px; }
+  .middle { margin-bottom: 10px; }
+  
+  .org-node {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 15px;
+    position: relative;
+    opacity: 0.7;
+  }
+  
+  .top .org-node {
+    width: 16px;
+    height: 16px;
+    background: #f1c40f;
+    animation: leaderPulse 3s ease infinite;
+  }
+  
+  .middle .org-node {
+    background: #2ecc71;
+    animation: managerPulse 3.5s ease infinite 0.5s;
+  }
+  
+  .bottom .org-node {
+    background: #e74c3c;
+    animation: teamPulse 4s ease infinite 1s;
+  }
+  
+  .org-connectors {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .org-connectors::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    width: 2px;
+    height: 60px;
+    background: rgba(255,255,255,0.3);
+    transform: translateX(-50%);
+  }
+  
+  @keyframes leaderPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+  
+  /* Similar animations for managerPulse and teamPulse */
+  
+  /* Management Logo Animation */
+  .management-logo {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .logo-strategy, .logo-org, .logo-balance {
+    font-size: 3rem;
+    margin: 0 1rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+    transition: all 0.5s ease;
+    display: inline-block;
+  }
+  
+  .management-logo:hover .logo-strategy {
+    transform: translateY(-10px) rotate(-15deg);
+    color: #f1c40f;
+  }
+  
+  .management-logo:hover .logo-org {
+    transform: scale(1.2) translateY(-15px);
+    color: #2ecc71;
+  }
+  
+  .management-logo:hover .logo-balance {
+    transform: rotate(15deg) translateY(-10px);
+    color: #e74c3c;
+  }
+  
+  /* Leadership Pulse Animation */
+  .leadership-pulse {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 3;
+  }
+  
+  .pulse-center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  }
+  
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .pr-1 {
+    animation: leadershipPulse 4s ease-out infinite;
+  }
+  
+  .pr-2 {
+    animation: leadershipPulse 4s ease-out infinite 1s;
+  }
+  
+  .pr-3 {
+    animation: leadershipPulse 4s ease-out infinite 2s;
+  }
+  
+  @keyframes leadershipPulse {
+    0% { transform: scale(0.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 0; }
+  }
+  
+  /* Text Animation */
+  .hero-content h1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #f1c40f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease 0.5s;
+  }
+  
+  .hero-content h1.animate-on-scroll::after {
+    transform: scaleX(1);
+  }
+</style>
+
+  <!-- Main Content -->
+  <main class="team-page">
+    <div class="container">
+      <div class="team-header">
+        <h2>Our Management Team</h2>
+      </div>
+      
+      <div class="team-description">
+        <p>Our management team provides strategic direction and operational leadership to ensure we fulfill our mission effectively. They oversee planning, partnerships, and organizational growth while maintaining our core values.</p>
+      </div>
+      
+      <!-- Leadership Section -->
+      <section class="leadership-section">
+        <div class="leadership-header">
+          <h3>Executive Leadership</h3>
+        </div>
+        
+        <div class="officers-grid">
+          <!-- Aria Chahal -->
+          <div class="member-card officer-card animate-on-scroll">
+            <div class="officer-badge">
+              <i class="fas fa-crown"></i>
+              <span>SMT Other than Volunteer Manager</span>
+            </div>
+            <img src="Aria.jpg" alt="Aria Chahal" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Aria Chahal</h3>
+              <p class="member-role">Volunteer Manager</p>
+              <p class="member-bio">ADD SMT</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/aria-chahal-0a36a2249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/aria_.c?igsh=MjdpYmRvZ3RwcG94" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:ariajc99@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ritvik Peddi -->
+          <div class="member-card officer-card animate-on-scroll" style="transition-delay: 0.1s">
+            <div class="officer-badge">
+              <i class="fas fa-star"></i>
+              <span>Financial Operations Lead</span>
+            </div>
+            <img src="Ritvik.jpg" alt="Ritvik Peddi" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Ritvik Peddi</h3>
+              <p class="member-role">Finance Lead</p>
+              <p class="member-bio">ADD SMT</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/ritvik-peddi-86ba8433a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/ritvikpeddi9?igsh=cTcybzlnaTN6dTN6" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:peddiritvik@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Davis Norton -->
+          <div class="member-card officer-card animate-on-scroll" style="transition-delay: 0.2s">
+            <div class="officer-badge">
+              <i class="fas fa-star"></i>
+              <span>SMT other than Secretary</span>
+            </div>
+            <img src="Davis.jpg" alt="Davis Norton" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Davis Norton</h3>
+              <p class="member-role">Secretary</p>
+              <p class="member-bio">ADD SMT</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/davis-norton-08657a29a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link"><i class="fas fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/f18_davis?igsh=aTBhdTR3bWs1dmNi" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:Davisnorton.us@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Team Members Section -->
+      <section class="members-section">
+        <div class="members-header">
+          <h3>Management Team</h3>
+        </div>
+        
+        <div class="members-grid">
+          <!-- Program Manager -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.3s">
+            <img src="images/team/management-program.jpg" alt="Program Manager" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Future Member</h3>
+              <p class="member-role">Program Manager</p>
+              <p class="member-bio">We're seeking an organized individual to coordinate our initiatives and ensure program success.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-calendar-alt"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-clipboard-list"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Finance Coordinator -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.4s">
+            <img src="images/team/management-finance.jpg" alt="Finance Coordinator" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Position Open</h3>
+              <p class="member-role">Finance Coordinator</p>
+              <p class="member-bio">Help manage our budget, expenses, and financial reporting to ensure sustainable operations.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-calculator"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-chart-line"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Volunteer Coordinator -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.5s">
+            <img src="images/team/management-volunteer.jpg" alt="Volunteer Coordinator" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Join Our Team</h3>
+              <p class="member-role">Volunteer Coordinator</p>
+              <p class="member-bio">We need someone passionate about people to recruit, train, and manage our volunteer network.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-users"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-hands-helping"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('beforeend', data);
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>About Us - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <!-- Hero Section -->
+ <header class="hero">
+  <h1 class="animate-on-scroll">About Our Healing Journey</h1>
+  <p class="animate-on-scroll delay-1">The hearts behind the healing</p>
+ </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <section class="animate-on-scroll fade-up">
+      <h2 style="text-align: center;">Our Story</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto;">Hearts for Healing began when a group of compassionate individuals came together with a shared vision of spreading love and comfort to those in need.</p>
+    </section>
+
+    <div class="heart-divider"></div>
+
+    <!-- Team Section -->
+    <section class="team-section animate-on-scroll">
+      <h2 style="text-align: center;">Meet Our Team</h2>
+      
+      <div class="team-tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'leadership')">Leadership</button>
+        <!--<button class="tab-btn" onclick="openTab(event, 'volunteers')">Volunteers</button>-->
+        <button class="tab-btn" onclick="openTab(event, 'partners')">Partners</button>
+        <!-- New Form Tabs -->
+        <button class="tab-btn" onclick="openTab(event, 'volunteer-form')">Volunteer Form</button>
+        <button class="tab-btn" onclick="openTab(event, 'chapter-form')">Start a Chapter</button>
+      </div>
+
+      <!-- Leadership Tab Content -->
+      <section class="team-section">
+  <div class="container">
+    
+    <div class="team-tabs">
+      <!-- Tab buttons remain the same -->
+    </div>
+
+    <div id="leadership" class="tab-content" style="display:block">
+      <div class="team-grid">
+        <!-- Mayank Jadhav - Sample Card (repeat for each team member) -->
+        <!-- Hasini Namburi -->
+          <div class="team-card">
+            <a href="mayank-jadhav.html" class="team-image-link">
+              <img src="Mayank.jpg" alt="Mayank Jadhav">
+            </a>
+            <div class="team-info">
+              <h3>Mayank Jadhav</h3>
+              <p class="role">Co-Founder</p>
+              <a href="mayank-jadhav.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Hasini Namburi -->
+          <div class="team-card">
+            <a href="hasini-namburi.html" class="team-image-link">
+              <img src="Hasini.jpg" alt="Hasini Namburi">
+            </a>
+            <div class="team-info">
+              <h3>Hasini Namburi</h3>
+              <p class="role">Co-Founder</p>
+              <a href="hasini-namburi.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Nick Elissa -->
+          <div class="team-card">
+            <a href="nick-elissa.html" class="team-image-link">
+              <img src="Nick.jpg" alt="Nick Elissa">
+            </a>
+            <div class="team-info">
+              <h3>Nick Elissa</h3>
+              <p class="role">Vice President</p>
+              <a href="nick-elissa.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Davis Norton -->
+          <div class="team-card">
+            <a href="davis-norton.html" class="team-image-link">
+              <img src="Davis.jpg" alt="Davis Norton">
+            </a>
+            <div class="team-info">
+              <h3>Davis Norton</h3>
+              <p class="role">Secretary</p>
+              <a href="davis-norton.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Sidd Narayanabhatla -->
+          <div class="team-card">
+            <a href="sidd-narayanabhatla.html" class="team-image-link">
+              <img src="Sidd.jpg" alt="Sidd Narayanabhatla">
+            </a>
+            <div class="team-info">
+              <h3>Sidd Narayanabhatla</h3>
+              <p class="role">Social Media Director</p>
+              <a href="sidd-narayanabhatla.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Avanish Yadav -->
+          <div class="team-card">
+            <a href="avanish-yadav.html" class="team-image-link">
+              <img src="Avanish.jpg" alt="Avanish Yadav">
+            </a>
+            <div class="team-info">
+              <h3>Avanish Yadav</h3>
+              <p class="role">Tech Director</p>
+              <a href="avanish-yadav.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Raina Prasad -->
+          <div class="team-card">
+            <a href="raina-prasad.html" class="team-image-link">
+              <img src="Raina.jpg" alt="Raina Prasad">
+            </a>
+            <div class="team-info">
+              <h3>Raina Prasad</h3>
+              <p class="role">Events Coordinator</p>
+              <a href="raina-prasad.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Aria Chahal -->
+          <div class="team-card">
+            <a href="aria-chahal.html" class="team-image-link">
+              <img src="Aria.jpg" alt="Aria Chahal">
+            </a>
+            <div class="team-info">
+              <h3>Aria Chahal</h3>
+              <p class="role">Volunteer Manager</p>
+              <a href="aria-chahal.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Rishi Santhanam -->
+          <div class="team-card">
+            <a href="rishi-santhanam.html" class="team-image-link">
+              <img src="Rishi.jpg" alt="Rishi Santhanam">
+            </a>
+            <div class="team-info">
+              <h3>Rishi Santhanam</h3>
+              <p class="role">Outreach Manager</p>
+              <a href="rishi-santhanam.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partners Tab Content -->
+      <div id="partners" class="tab-content" style="display:none">
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="Feeding_Hands.jpg" alt="Hospital Partner">
+            <div class="team-info">
+              <h3>Feeding Hands</h3>
+              <p class="role">Healthcare Partner</p>
+              <p>Distributing goods to patients since 2025.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="Hackensack Medrdian.jpg" alt="Hospital Partner">
+            <div class="team-info">
+              <h3>Hackensack Medrdian</h3>
+              <p class="role">Healthcare Partner</p>
+              <p></p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="Knots of Support.png" alt="Hospital Partner">
+            <div class="team-info">
+              <h3>Knots of Support</h3>
+              <p class="role">Healthcare Partner</p>
+              <p>Partners since 2025.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="BioMedizone.png" alt="Hospital Partner">
+            <div class="team-info">
+              <h3>BioMedizone</h3>
+              <p class="role">Healthcare Partner</p>
+              <p>Partners since 2025.</p>
+            </div>
+          </div>
+
+          <div class="team-card">
+            <img src="Knit.png" alt="Hospital Partner">
+            <div class="team-info">
+              <h3>Knit Crochet With Love</h3>
+              <p class="role">Healthcare Partner</p>
+              <p>Partners since 2025.</p>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    <!-- New Volunteer Form Tab -->
+      <div id="volunteer-form" class="tab-content" style="display:none">
+        <div class="form-container">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdF9w2AiBpz0q2QqtUBb2z_UzCbEOHUZZj5l9OBb54Ugc84Q/viewform?embedded=true" width="100%" height="500px" style="border:none;"></iframe>
+        </div>
+      </div>
+
+      <!-- New Chapter Form Tab -->
+      <div id="chapter-form" class="tab-content" style="display:none">
+        <div class="form-container">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSedGcanU1q7nmjdIa3A3ezpqWdHPMtrJH-uKI-368u2LQyxGg/viewform?embedded=true" width="100%" height="500px" style="border:none;"></iframe>
+        </div>
+      </div>
+    </section>
+
+      <!-- Chapters -->
+<section class="chapters-section animate-on-scroll">
+  <div class="container">
+    <h2 class="section-title">Our Chapters</h2>
+    <p class="section-subtitle">Expanding our healing mission across the country</p>
+    
+    <!-- Frisco, Texas Chapter -->
+    <div class="chapter-group">
+      <h3 class="chapter-title">Frisco, Texas</h3>
+      <div class="team-grid"> <!-- Using the same grid as team cards -->
+        <!-- President -->
+        <div class="team-card">
+            <a href="ebaad-jaffery.html" class="team-image-link">
+              <img src="Ebaad-Jaffery.jpg" alt="Texas Chapter">
+            </a>
+            <div class="team-info">
+              <h3>Ebaad Jaffery</h3>
+              <p class="role">President</p>
+              <a href="ebaad-jaffery.html" class="btn btn-small">View Profile</a>
+            </div>
+        </div>
+        
+     
+        <div class="team-card">
+          <a href="arham-javed.html" class="team-image-link">
+            <img src="Arham-Javed.jpg" alt="Arman Javed">
+          </a>
+          <div class="team-info">
+            <h3>Arham Javed</h3>
+            <p class="role"></p>
+            <a href="arham-javed.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <a href="aazmeer-siddiqui.html" class="team-image-link">
+            <img src="aazmeer-siddiqui.jpg" alt="Aazmeer Siddiqui">
+          </a>
+          <div class="team-info">
+            <h3>Aazmeer Siddiqui</h3>
+            <p class="role"></p>
+            <a href="aazmeer-siddiqui.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- Los Angeles, California Chapter -->
+    <br>
+    <div class="chapter-group">
+      <h3 class="chapter-title">Los Angeles, California</h3>
+      <div class="team-grid"> <!-- Using the same grid as team cards -->
+        <!-- President -->
+        <div class="team-card">
+          <a href="sihyun-kim.html" class="team-image-link">
+            <img src="Sihyun-Kim.JPG" alt="California Chapter President">
+          </a>
+          <div class="team-info">
+            <h3>Sihyun Kim</h3>
+            <p class="role">President</p>
+            <a href="sihyun-kim.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+        
+        <!-- Vice President -->
+        <div class="team-card">
+          <a href="samaya-patel.html" class="team-image-link">
+            <img src="Samaya-Patel.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Samaya Patel</h3>
+            <p class="role">Co-President</p>
+            <a href="samaya-patel.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Secretary -->
+        <div class="team-card">
+          <a href="eli-yoshizaki.html" class="team-image-link">
+            <img src="Eli_Yoshizaki.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Eli Yoshizaki</h3>
+            <p class="role">Secretary</p>
+            <a href="eli-yoshizaki.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Outreach Officer -->
+        <div class="team-card">
+          <a href="samantha-young.html" class="team-image-link">
+            <img src="Samantha-Young.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Samantha Young</h3>
+            <p class="role">Outreach Officer</p>
+            <a href="samantha-young.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- San Jose, California Chapter -->
+    <br>
+    <div class="chapter-group">
+      <h3 class="chapter-title">San Jose, California</h3>
+      <div class="team-grid"> <!-- Using the same grid as team cards -->
+        <!-- President -->
+        <div class="team-card">
+          <a href="pratham.html" class="team-image-link">
+            <img src="pratham.png" alt="California Chapter President">
+          </a>
+          <div class="team-info">
+            <h3>Pratham Sarkar</h3>
+            <p class="role">President</p>
+            <a href="pratham.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+        
+        <!-- Vice President -->
+        <div class="team-card">
+          <a href="joanna-chen.html" class="team-image-link">
+            <img src="joanna-chen.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Joanna Chen</h3>
+            <p class="role">Vice President</p>
+            <a href="joanna-chen.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Secretary -->
+        <div class="team-card">
+          <a href="sathvega-somasundaram.html" class="team-image-link">
+            <img src="Sathvega-Somasundaram.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Sathvega Somasundaram</h3>
+            <p class="role">Secretary</p>
+            <a href="sathvega-somasundaram.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Outreach Officer -->
+        <div class="team-card">
+          <a href="chloe-lufei.html" class="team-image-link">
+            <img src="chloe-lufei.jpg" alt="California Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Chloe Lufei</h3>
+            <p class="role">Treasurer</p>
+            <a href="chloe-lufei.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Unknown Member -->
+        <div class="team-card">
+          <a href="mary.html" class="team-image-link">
+            <img src="mary.png" alt="Mary">
+          </a>
+          <div class="team-info">
+            <h3>Mary</h3>
+            <p class="role"></p>
+            <a href="mary.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <!--South Korea Chapter-->
+    <br>
+    <div class="chapter-group">
+      <h3 class="chapter-title">South Korea</h3>
+      <div class="team-grid"> <!-- Using the same grid as team cards -->
+        <!-- President -->
+        <div class="team-card">
+          <a href="jacob-seong.html" class="team-image-link">
+            <img src="jacob-seong.JPG" alt="South Korea Chapter President">
+          </a>
+          <div class="team-info">
+            <h3>Jacob Seong</h3>
+            <p class="role">President</p>
+            <a href="jacob-seong.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+        
+        <!-- Vice President -->
+        <div class="team-card">
+          <a href="eunyul-cho.html" class="team-image-link">
+            <img src="eunyul-cho.jpg" alt="South Korea Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Eunyul Cho</h3>
+            <p class="role">Vice President <!-- check role !!!--></p>
+            <a href="eunyul-cho.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Member (check roles once it comes out) -->
+        <div class="team-card">
+          <a href="timothy-hajin-park.html" class="team-image-link">
+            <img src="timothy-hajin-park.png" alt="South Korea Chapter Vice President">
+          </a>
+          <div class="team-info">
+            <h3>Timothy Hajin Park</h3>
+            <p class="role"></p>
+            <a href="timothy-hajin-park.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+     <!--Saudi Arabia Chapter-->
+     <br>
+     <div class="chapter-group">
+       <h3 class="chapter-title">Saudi Arabia</h3>
+       <div class="team-grid"> <!-- Using the same grid as team cards -->
+         <!-- President -->
+         <div class="team-card">
+           <a href="husna-irfan-thalib.html" class="team-image-link">
+             <img src="husna-irfan-thalib.png" alt="Saudi Arabia Chapter President">
+           </a>
+           <div class="team-info">
+             <h3>Husna Irfan Thalib</h3>
+             <p class="role">President</p>
+             <a href="husna-irfan-thalib.html" class="btn btn-small">View Profile</a>
+           </div>
+         </div>
+         
+         <!-- Vice President -->
+         <div class="team-card">
+           <a href="rayyan-mirza.html" class="team-image-link">
+             <img src="rayyan-mirza.png" alt="Saudi Arabia Chapter Vice President">
+           </a>
+           <div class="team-info">
+             <h3>Rayyan Mirza</h3>
+             <p class="role">Vice President</p>
+             <a href="rayyan-mirza.html" class="btn btn-small">View Profile</a>
+           </div>
+         </div>
+ 
+         <!-- Head of Events -->
+         <div class="team-card">
+           <a href="ayesha-jamal.html" class="team-image-link">
+             <img src="ayesha-jamal.png" alt="Saudi Arabia Chapter Head of Events">
+           </a>
+           <div class="team-info">
+             <h3>Ayesha Jamal</h3>
+             <p class="role">Head of Events</p>
+             <a href="ayesha-jamal.html" class="btn btn-small">View Profile</a>
+           </div>
+         </div>
+
+         <!-- Vice Head of Events -->
+         <div class="team-card">
+          <a href="ammarah-tayebbah.html" class="team-image-link">
+            <img src="ammarah-tayebbah.png" alt="Saudi Arabia Chapter Vice Head of Events">
+          </a>
+          <div class="team-info">
+            <h3>Ammarah Tayebbah</h3>
+            <p class="role">Vice Head of Events</p>
+            <a href="ammarah-tayebbah.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+         <!-- Event Coordinator -->
+         <div class="team-card">
+          <a href="nora-radi.html" class="team-image-link">
+            <img src="nora-radi.png" alt="Saudi Arabia Chapter Event Coordinator">
+          </a>
+          <div class="team-info">
+            <h3>Nora Radi</h3>
+            <p class="role">Event Coordinator</p>
+            <a href="nora-radi.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+          <!-- Head of Social Media -->
+          <div class="team-card">
+            <a href="faaleha-heba.html" class="team-image-link">
+              <img src="faaleha-heba.png" alt="Saudi Arabia Chapter Head of Social Media">
+            </a>
+            <div class="team-info">
+              <h3>Faaleha Heba</h3>
+              <p class="role">Head of Social Media</p>
+              <a href="faaleha-heba.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Head of Design -->
+          <div class="team-card">
+            <a href="basila-abdul-latheef.html" class="team-image-link">
+              <img src="basila-abdul-latheef.png" alt="Saudi Arabia Chapter Head of Design">
+            </a>
+            <div class="team-info">
+              <h3>Basila Abdul Latheef</h3>
+              <p class="role">Head of Design</p>
+              <a href="basila-abdul-latheef.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+          <!-- Vice Head of Design -->
+          <div class="team-card">
+            <a href="nooreen-kazi.html" class="team-image-link">
+              <img src="nooreen-kazi.png" alt="Saudi Arabia Chapter Vice Head of Design">
+            </a>
+            <div class="team-info">
+              <h3>Nooreen Kazi</h3>
+              <p class="role">Vice Head of Design</p>
+              <a href="nooreen-kazi.html" class="btn btn-small">View Profile</a>
+            </div>
+          </div>
+
+
+
+
+        
+        </div>
+      </div>
+
+</section>
+
+    <section class="animate-on-scroll">
+      <h2 style="text-align: center;">Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card" style="text-align: center;">
+          <i class="fas fa-heart"></i>
+          <h3 style="text-align: center;">Compassion</h3>
+          <p style="text-align: center; max-width: 800px; margin: 0 auto;">Every heart is made with genuine care and understanding.</p>
+        </div>
+        <div class="value-card" style="text-align: center;">
+          <i class="fas fa-hands-helping"></i>
+          <h3 style="text-align: center;">Community</h3>
+          <p style="text-align: center; max-width: 800px; margin: 0 auto;">We believe in the healing power of togetherness.</p>
+        </div>
+        <div class="value-card" style="text-align: center;">
+          <i class="fas fa-seedling"></i>
+          <h3 style="text-align: center;">Growth</h3>
+          <p style="text-align: center; max-width: 800px; margin: 0 auto;">Continuously expanding our circle of care.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="animate-on-scroll" style="text-align: center;">
+    <p style="text-align: center; max-width: 800px; margin: 0 auto;">&copy; 2025 Hearts for Healing. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>

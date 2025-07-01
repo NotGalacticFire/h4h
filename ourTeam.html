@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Teams - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    /* Hero Animation Styles */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 50%, #d53e9f 100%);
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Healing Pulse Animation */
+    .healing-pulse {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .pulse-ring {
+      position: absolute;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: pulse 6s ease-out infinite;
+      opacity: 0;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0.1); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    /* Floating Healing Elements */
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .floating-element {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 1.8rem;
+      animation: floatElement 20s linear infinite;
+    }
+    
+    @keyframes floatElement {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.3; }
+      50% { transform: translate(50px, -30px) rotate(180deg); opacity: 0.4; }
+      90% { opacity: 0.3; }
+      100% { transform: translate(100px, -60px) rotate(360deg); opacity: 0; }
+    }
+    
+    /* Heartbeat Animation */
+    .heartbeat {
+      position: absolute;
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.1);
+      animation: heartbeat 1.5s ease infinite;
+      z-index: 1;
+    }
+    
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Hero Content */
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      padding: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .hero h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: white;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+    }
+    
+    .hero h1.animate-on-scroll::after {
+      transform: scaleX(1);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease 0.8s;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero p.animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Shimmer Effect */
+    .shimmer {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+      );
+      animation: shimmer 4s ease infinite;
+      z-index: 2;
+    }
+    
+    @keyframes shimmer {
+      0% { left: -100%; }
+      20%, 100% { left: 150%; }
+    }
+    
+    /* Glowing Particles */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFloat 15s linear infinite;
+    }
+    
+    @keyframes particleFloat {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+    }
+
+    /* Team Section Styles */
+    .team-section {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 4rem 2rem;
+      margin: 2rem auto;
+      max-width: 1400px;
+      border-radius: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.6s ease-out;
+    }
+    
+    .team-section.animate-on-scroll {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    /* Enhanced Card Animations */
+    .team-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .team-card:nth-child(1) { transition-delay: 0.1s; }
+    .team-card:nth-child(2) { transition-delay: 0.2s; }
+    .team-card:nth-child(3) { transition-delay: 0.3s; }
+    
+    .team-section.animate-on-scroll .team-card {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ffb3b3);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-10px) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .team-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .team-card h3 {
+      color: #ff6b6b;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+    }
+    
+    .team-card:hover h3 {
+      color: #ff4757;
+      transform: scale(1.05);
+    }
+    
+    .team-card p {
+      color: #57606f;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .team-card:hover p {
+      transform: translateY(-3px);
+    }
+    
+    .team-card a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .team-card a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+    
+    .team-card a:hover {
+      background: linear-gradient(135deg, #ff4757, #ff6b6b);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+    
+    .team-card a:hover::before {
+      left: 100%;
+    }
+    
+    .team-icon {
+      font-size: 2.5rem;
+      color: #ff6b6b;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .team-card:hover .team-icon {
+      transform: translateY(-5px) scale(1.1);
+      color: #ff4757;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: #333;
+    }
+    /* Chapters Section - Now matching Team Cards exactly */
+    .chapters-section {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 4rem 2rem;
+      margin: 2rem auto;
+      max-width: 1400px;
+      border-radius: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.6s ease-out;
+    }
+    
+    .chapters-section.animate-on-scroll {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .chapter-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    
+    .chapter-card:nth-child(1) { transition: all 0.5s ease 0.1s; }
+    .chapter-card:nth-child(2) { transition: all 0.5s ease 0.2s; }
+    .chapter-card:nth-child(3) { transition: all 0.5s ease 0.3s; }
+    .chapter-card:nth-child(4) { transition: all 0.5s ease 0.4s; }
+    
+    .chapters-section.animate-on-scroll .chapter-card {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ffb3b3);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .chapter-card:hover {
+      transform: translateY(-10px) !important;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .chapter-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .chapter-icon {
+      font-size: 2.5rem;
+      color: #ff6b6b;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .chapter-card:hover .chapter-icon {
+      transform: translateY(-5px) scale(1.1);
+      color: #ff4757;
+    }
+    
+    .chapter-card h3 {
+      color: #ff6b6b;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+    }
+    
+    .chapter-card:hover h3 {
+      color: #ff4757;
+      transform: scale(1.05);
+    }
+    
+    .chapter-card p {
+      color: #57606f;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .chapter-card:hover p {
+      transform: translateY(-3px);
+    }
+    
+    .chapter-location {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #747d8c;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .chapter-location i {
+      margin-right: 0.5rem;
+      color: #ff6b6b;
+    }
+    
+    .chapter-card:hover .chapter-location {
+      transform: translateY(-3px);
+    }
+    
+    .chapter-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .chapter-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+    
+    .chapter-btn:hover {
+      background: linear-gradient(135deg, #ff4757, #ff6b6b);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+    
+    .chapter-btn:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Load Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="healing-pulse"></div>
+    <div class="floating-elements"></div>
+    <div class="particles"></div>
+    <div class="shimmer"></div>
+    <div class="heartbeat"><i class="fas fa-heart"></i></div>
+    
+    <div class="hero-content container">
+      <h1 class="animate-on-scroll">Our Teams</h1>
+      <p class="animate-on-scroll" style="transition-delay: 0.2s">Meet the hearts behind the healing</p>
+    </div>
+  </header>
+
+  <!-- Teams Section -->
+  <section class="team-section animate-on-scroll">
+    <div class="container">
+      <h2 class="section-header">Explore Our Teams</h2>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Tech Team</h3>
+          <p>Web development, technical tools, and Discord management.</p>
+          <a href="tech-team.html">View Tech Team</a>
+        </div>
+
+        <div class="team-card">
+          <div class="team-icon">
+            <i class="fas fa-photo-video"></i>
+          </div>
+          <h3>Media Team</h3>
+          <p>Graphics, social media, and video storytelling.</p>
+          <a href="media-team.html">View Media Team</a>
+        </div>
+
+        <div class="team-card">
+          <div class="team-icon">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <h3>Management Team</h3>
+          <p>Leadership, scheduling, and strategic planning.</p>
+          <a href="management-team.html">View Management Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hero = document.querySelector('.hero');
+      const healingPulse = document.querySelector('.healing-pulse');
+      const floatingElements = document.querySelector('.floating-elements');
+      const particles = document.querySelector('.particles');
+      
+      // Create pulse rings
+      for (let i = 0; i < 5; i++) {
+        const ring = document.createElement('div');
+        ring.classList.add('pulse-ring');
+        ring.style.width = `${200 + (i * 150)}px`;
+        ring.style.height = `${200 + (i * 150)}px`;
+        ring.style.left = `${30 + (i * 5)}%`;
+        ring.style.top = `${40 + (i * 5)}%`;
+        ring.style.animationDelay = `${i * 1.5}s`;
+        healingPulse.appendChild(ring);
+      }
+      
+      // Create floating elements
+      const elements = ['fa-heart', 'fa-hands-helping', 'fa-star', 'fa-plus', 'fa-hand-holding-heart'];
+      for (let i = 0; i < 12; i++) {
+        const element = document.createElement('i');
+        element.classList.add('fas', elements[i % elements.length], 'floating-element');
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.top = `${Math.random() * 100}%`;
+        element.style.fontSize = `${1 + Math.random() * 2}rem`;
+        element.style.animationDuration = `${15 + Math.random() * 15}s`;
+        element.style.animationDelay = `${Math.random() * 5}s`;
+        floatingElements.appendChild(element);
+      }
+      
+      // Create particles
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100 + 100}%`;
+        particle.style.width = `${2 + Math.random() * 4}px`;
+        particle.style.height = particle.style.width;
+        particle.style.animationDuration = `${10 + Math.random() * 20}s`;
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+        particles.appendChild(particle);
+      }
+      
+      // Create heartbeat elements
+      for (let i = 0; i < 3; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heartbeat');
+        heart.innerHTML = '<i class="fas fa-heart"></i>';
+        heart.style.left = `${10 + (i * 30)}%`;
+        heart.style.top = `${20 + (i * 20)}%`;
+        heart.style.animationDelay = `${i * 0.5}s`;
+        hero.appendChild(heart);
+      }
+    });
+    
+    /* Animation on scroll */
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-on-scroll');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+</html>

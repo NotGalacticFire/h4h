@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sathvega Somasundaram - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Sathvega-Somasundaram.jpg" alt="Sathvega Somasundaram">
+      </div>
+      <div class="profile-content">
+        <h1>Sathvega Somasundaram</h1>
+        <p class="role">San Jose Chapter Secretary</p>
+        <div class="profile-bio">
+          <p>Hello I'm Sathvega Somasundaram, I'm a junior at Evergreen Valley High School. I joined this nonprofit because I was drawn to the idea of bringing comfort and connection to patients through simple but impactful gestures like letters, hygiene kits, and handmade gifts.</p>
+          <p>I'm passionate about community health equity and making others feel valued and supported. In my free time, you can find me traveling, cooking, or listening to music!</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+

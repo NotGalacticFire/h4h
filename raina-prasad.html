@@ -1,0 +1,40 @@
+<!-- raina-prasad.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raina Prasad - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Raina .jpg" alt="Raina Prasad">
+      </div>
+      <div class="profile-content">
+        <h1>Raina Prasad</h1>
+        <p class="role">Events Coordinator</p>
+        <div class="profile-bio">
+          <p>Hello! I am Raina Prasad, the Events Coordinator for Hearts for Healing. I joined this organization because I love finding small yet meaningful ways to give back to my community such as by interacting with seniors at senior living facilities, destigmatizing neurodiversity through podcast, or working with children.</p>
+          <p>I truly hope that we can spread some joy and positivity to those in need through our work here too. In my free time, I enjoy writing, hiking, drawing, acting, and traveling.</p>
+        </div>
+        <a href="../about.html#leadership" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="../script.js"></script>
+</body>
+</html>

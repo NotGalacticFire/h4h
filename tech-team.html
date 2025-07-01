@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Team - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* TECH TEAM HERO STYLES */
+    .tech-hero {
+      background: linear-gradient(135deg, #2b2d42 0%, #4a4e69 50%, #6a6f8c 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px; /* Space for navbar */
+    }
+    
+    .circuit-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,50 L20,50 L20,20 L40,20 L40,80 L60,80 L60,30 L80,30 L80,70 L100,70" stroke="rgba(110,72,170,0.3)" fill="none" stroke-width="2"/></svg>');
+      background-size: 200px;
+      opacity: 0.5;
+    }
+    
+    .tech-logo i {
+      font-size: 3rem;
+      margin: 0 1rem;
+      color: #9d50bb;
+      text-shadow: 0 0 10px rgba(157,80,187,0.5);
+    }
+    
+    .binary-animation {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      color: rgba(255,255,255,0.1);
+      font-family: monospace;
+      font-size: 1.2rem;
+      animation: scrollBinary 20s linear infinite;
+    }
+    
+    @keyframes scrollBinary {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    /* TEAM PAGE STYLES */
+    .team-page {
+      padding: 4rem 0;
+      background-color: var(--light);
+    }
+    
+    .team-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .team-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .team-description {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* LEADERSHIP SECTION */
+    .leadership-section {
+      margin-bottom: 4rem;
+    }
+    
+    .leadership-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .leadership-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .officer-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(231, 84, 128, 0.15);
+      transition: var(--transition-normal);
+      border-top: 5px solid var(--primary);
+    }
+    
+    .officer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(231, 84, 128, 0.25);
+    }
+    
+    .officer-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .officer-badge i {
+      font-size: 0.8rem;
+    }
+    
+    /* TEAM MEMBERS SECTION */
+    .members-section {
+      margin-top: 4rem;
+    }
+    
+    .members-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .members-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary-light);
+      padding-bottom: 0.5rem;
+    }
+    
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .member-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+    
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .member-card:hover .member-image {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-name {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .member-bio {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-normal);
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* EMPTY MEMBER PLACEHOLDER */
+    .empty-member {
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      border: 2px dashed var(--primary-light);
+    }
+    
+    .empty-member i {
+      font-size: 2rem;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+    }
+    
+    .empty-member p {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .team-header h2 {
+        font-size: 2rem;
+      }
+      
+      .leadership-header h3,
+      .members-header h3 {
+        font-size: 1.5rem;
+      }
+      
+      .officers-grid,
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <!-- Hero Section -->
+ <!-- Tech Team Hero with Advanced Animations -->
+<header class="hero tech-hero">
+  <!-- Animated Circuit Board Background -->
+  <div class="circuit-board">
+    <div class="circuit-path path-1"></div>
+    <div class="circuit-path path-2"></div>
+    <div class="circuit-path path-3"></div>
+    <div class="circuit-node node-1"></div>
+    <div class="circuit-node node-2"></div>
+    <div class="circuit-node node-3"></div>
+  </div>
+  
+  <!-- Floating Tech Icons -->
+  <div class="floating-tech">
+    <i class="fas fa-microchip tech-float"></i>
+    <i class="fas fa-server tech-float"></i>
+    <i class="fas fa-code tech-float"></i>
+    <i class="fas fa-database tech-float"></i>
+    <i class="fas fa-robot tech-float"></i>
+  </div>
+  
+  <!-- Binary Rain Animation -->
+  <div class="binary-rain">
+    <div class="binary-column"></div>
+    <div class="binary-column"></div>
+    <div class="binary-column"></div>
+  </div>
+  
+  <div class="hero-content container">
+    <div class="tech-logo">
+      <i class="fas fa-microchip logo-chip"></i>
+      <i class="fas fa-code logo-code"></i>
+      <i class="fas fa-network-wired logo-network"></i>
+    </div>
+    
+    <h1 class="animate-on-scroll">Tech Team</h1>
+    <br>
+    <br>
+    <p class="animate-on-scroll" style="transition-delay: 0.2s"> Architects of our digital infrastructure</p>
+    
+    <!-- Interactive Tech Elements -->
+    <div class="tech-interactive">
+      <div class="server-pulse">
+        <div class="server-core"></div>
+        <div class="pulse-ring r1"></div>
+        <div class="pulse-ring r2"></div>
+        <div class="pulse-ring r3"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Tech Hero Container */
+  .tech-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2b2d42 0%, #4a4e69 50%, #6a6f8c 100%);
+  }
+  
+  /* Circuit Board Animation */
+  .circuit-board {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .circuit-path {
+    position: absolute;
+    background: rgba(157, 80, 187, 0.3);
+    height: 2px;
+    transform-origin: left center;
+  }
+  
+  .path-1 {
+    width: 30%;
+    top: 25%;
+    left: 10%;
+    transform: rotate(15deg);
+    animation: circuitFlow 6s linear infinite;
+  }
+  
+  .path-2 {
+    width: 40%;
+    top: 55%;
+    left: 30%;
+    transform: rotate(-10deg);
+    animation: circuitFlow 8s linear infinite 1s;
+  }
+  
+  .path-3 {
+    width: 35%;
+    top: 75%;
+    left: 15%;
+    transform: rotate(5deg);
+    animation: circuitFlow 7s linear infinite 2s;
+  }
+  
+  @keyframes circuitFlow {
+    0% { background: rgba(157, 80, 187, 0.1); }
+    50% { background: rgba(157, 80, 187, 0.5); }
+    100% { background: rgba(157, 80, 187, 0.1); }
+  }
+  
+  .circuit-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #9d50bb;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  
+  .node-1 {
+    top: 25%;
+    left: 40%;
+    animation: nodePulse 3s ease infinite;
+  }
+  
+  .node-2 {
+    top: 55%;
+    left: 70%;
+    animation: nodePulse 3.5s ease infinite 1s;
+  }
+  
+  .node-3 {
+    top: 75%;
+    left: 50%;
+    animation: nodePulse 4s ease infinite 2s;
+  }
+  
+  @keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.5); opacity: 1; }
+  }
+  
+  /* Floating Tech Icons */
+  .floating-tech {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .tech-float {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 1.8rem;
+    animation: techFloat 25s linear infinite;
+  }
+  
+  .tech-float:nth-child(1) {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+  
+  .tech-float:nth-child(2) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 5s;
+  }
+  
+  .tech-float:nth-child(3) {
+    top: 40%;
+    left: 60%;
+    animation-delay: 10s;
+  }
+  
+  .tech-float:nth-child(4) {
+    top: 80%;
+    left: 20%;
+    animation-delay: 15s;
+  }
+  
+  .tech-float:nth-child(5) {
+    top: 30%;
+    left: 85%;
+    animation-delay: 20s;
+  }
+  
+  @keyframes techFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.2; }
+    50% { transform: translateY(-50px) rotate(180deg); opacity: 0.3; }
+    90% { opacity: 0.2; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+  
+  /* Binary Rain Animation */
+  .binary-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .binary-column {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(157, 80, 187, 0.1), transparent);
+    position: relative;
+  }
+  
+  .binary-column::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(transparent, #9d50bb, transparent);
+    animation: binaryFall 4s linear infinite;
+  }
+  
+  .binary-column:nth-child(2)::before {
+    animation-delay: 0.5s;
+  }
+  
+  .binary-column:nth-child(3)::before {
+    animation-delay: 1s;
+  }
+  
+  @keyframes binaryFall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  
+  /* Tech Logo Animation */
+  .tech-logo {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .logo-chip, .logo-code, .logo-network {
+    font-size: 3rem;
+    margin: 0 1rem;
+    color: #9d50bb;
+    text-shadow: 0 0 10px rgba(157, 80, 187, 0.5);
+    transition: all 0.5s ease;
+    display: inline-block;
+  }
+  
+  .tech-logo:hover .logo-chip {
+    transform: rotate(15deg) translateY(-5px);
+    color: #ff79c6;
+  }
+  
+  .tech-logo:hover .logo-code {
+    transform: scale(1.2) translateY(-10px);
+    color: #50fa7b;
+  }
+  
+  .tech-logo:hover .logo-network {
+    transform: rotate(-15deg) translateY(-5px);
+    color: #8be9fd;
+  }
+  
+  /* Interactive Server Animation */
+  .tech-interactive {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+  }
+  
+  .server-pulse {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  /*.server-core {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #50fa7b;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 0 15px #50fa7b;
+  }
+  
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #8be9fd;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }*/
+  
+  .r1 {
+    animation: pulse 3s ease-out infinite;
+  }
+  
+  .r2 {
+    animation: pulse 3s ease-out infinite 1s;
+  }
+  
+  .r3 {
+    animation: pulse 3s ease-out infinite 2s;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(0.1); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  
+  /* Text Animation */
+  .hero-content h1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #50fa7b;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease 0.5s;
+  }
+  
+  .hero-content h1.animate-on-scroll::after {
+    transform: scaleX(1);
+  }
+</style>
+
+  <!-- Main Content -->
+  <main class="team-page">
+    <div class="container">
+      <div class="team-header">
+        <h2>Our Tech Team</h2>
+      </div>
+      
+      <div class="team-description">
+        <p>Our talented tech team develops and maintains all the digital platforms that help us connect with communities and deliver our services. From website development to Discord management, these are the people who keep our digital heart beating.</p>
+      </div>
+      
+      <!-- Leadership Section -->
+      <section class="leadership-section">
+        <div class="leadership-header">
+          <h3>Team Leadership</h3>
+        </div>
+        
+        <div class="officers-grid">
+          <!-- Lead Developer -->
+          <div class="member-card officer-card animate-on-scroll">
+            <div class="officer-badge">
+              <i class="fas fa-crown"></i>
+              <span>Team Lead</span>
+            </div>
+            <img src="Avanish.jpg" alt="Avanish Yadav" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Avanish Yadav</h3>
+              <p class="member-role">Lead Developer</p>
+              <p class="member-bio">Oversees all technical development and ensures our platforms are secure, accessible, and user-friendly.</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/avanish-yadav-a97589357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/tkdavanish_15?igsh=MTRwNTVmY3d2ZGJkdQ%3D%3D&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:getavanishy@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Future Leadership Position -->
+          <div class="member-card officer-card animate-on-scroll" style="transition-delay: 0.1s">
+            <div class="officer-badge">
+              <i class="fas fa-star"></i>
+              <span>Co-Lead</span>
+            </div>
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Position Available</p>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Your Name Here</h3>
+              <p class="member-role">Technical Co-Lead</p>
+              <p class="member-bio">This could be you! Help lead our tech initiatives and shape our digital future.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Team Members Section -->
+      <section class="members-section">
+        <div class="members-header">
+          <h3>Team Members</h3>
+        </div>
+        
+        <div class="members-grid">
+          <!-- Frontend Developer -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.2s">
+            <img src="images/team/tech-member2.jpg" alt="Frontend Developer" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Future Member</h3>
+              <p class="member-role">Frontend Developer</p>
+              <p class="member-bio">We're looking for talented frontend developers to create beautiful, responsive interfaces for our platforms.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Discord Manager -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.3s">
+            <img src="images/team/tech-member3.jpg" alt="Discord Manager" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Position Open</h3>
+              <p class="member-role">Discord Manager</p>
+              <p class="member-bio">Help us maintain and grow our Discord community as a welcoming space for all members.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Backend Developer -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.4s">
+            <img src="images/team/tech-member4.jpg" alt="Backend Developer" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Join Our Team</h3>
+              <p class="member-role">Backend Developer</p>
+              <p class="member-bio">We need backend experts to build and maintain the server infrastructure powering our services.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('beforeend', data);
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+</body>
+</html>

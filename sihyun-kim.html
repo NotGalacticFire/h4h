@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sihyun Kim - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Sihyun-Kim.JPG" alt="Sihyun Kim">
+      </div>
+      <div class="profile-content">
+        <h1>Sihyun Kim</h1>
+        <p class="role">Los Angeles Chapter President</p>
+        <div class="profile-bio">
+          <p>Hello I'm Sihyun, I'm a sophomore at North Hollywood High School. I joined this nonprofit to give back to my community and do what I love most!</p>
+          <p>I'm passionate about helping others and using my skills to help! In my free time I enjoy drawing and taking pictures of my friends.          </p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+I'm passionate about helping others and using my skills to help! In my free time I enjoy drawing and taking pictures of my friends.
+
+-->

@@ -1,0 +1,40 @@
+<!-- aria-chahal.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aria Chahal - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Aria.jpg" alt="Aria Chahal">
+      </div>
+      <div class="profile-content">
+        <h1>Aria Chahal</h1>
+        <p class="role">Volunteer Manager</p>
+        <div class="profile-bio">
+          <p>Hello! My name is Aria Chahal and I am a rising senior at Ridge High School and the Volunteer Manager at Hearts for Healing. I have always been passionate about service and making an impact in my community.</p>
+          <p>I am excited to help spread positivity and kindness to the people who need it the most through this organization. In my free time, I enjoy traveling, playing sports, stargazing, hiking, and spending time with my friends and family.</p>
+        </div>
+        <a href="../about.html#leadership" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="../script.js"></script>
+</body>
+</html>

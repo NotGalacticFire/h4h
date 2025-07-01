@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved - Hearts for Healing</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <style>
+    /* Center all content */
+    .centered-section {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .mission-grid {
+      justify-content: center;
+    }
+    .form-container {
+      text-align: center;
+    }
+    iframe {
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content animate-on-scroll centered-section">
+      <h1>Get Involved</h1>
+      <p>Join us in spreading kindness nationwide</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="section">
+    <div class="centered-section">
+      <h2>Ways to Join</h2>
+      <p class="subtitle">There are many ways you can contribute to our mission</p>
+
+      <div class="mission-grid">
+        <div class="mission-card animate-on-scroll delay-1">
+          <div class="mission-icon">
+            <i class="fas fa-pencil"></i>
+          </div>
+          <h3>Grant Writer</h3>
+          <p>Help us apply for funding to expand our reach and impact.</p>
+        </div>
+
+        <div class="mission-card animate-on-scroll delay-2">
+          <div class="mission-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Volunteer</h3>
+          <p>Assist with making cards and spreading joy to those in need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Forms Section -->
+  <section class="section">
+    <div class="centered-section">
+      <h2>Join Our Initiatives</h2>
+      <p>Please fill out either one of the forms below to get involved:</p>
+
+      <div class="form-container">
+        <h3>Form 1: Hearts for Healing Application Form</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdF9w2AiBpz0q2QqtUBb2z_UzCbEOHUZZj5l9OBb54Ugc84Q/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+
+      <div class="form-container">
+        <h3>Form 2: Chapter Application - Hearts for Healing</h3>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSedGcanU1q7nmjdIa3A3ezpqWdHPMtrJH-uKI-368u2LQyxGg/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="centered-section">
+      <h2>Start a Chapter</h2>
+      <p>Bring Hearts for Healing to your community</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>

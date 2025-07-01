@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Davis Norton - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Davis.jpg" alt="Davis Norton">
+      </div>
+      <div class="profile-content">
+        <h1>Davis Norton</h1>
+        <p class="role">Secretary</p>
+        <div class="profile-bio">
+          <p>Hello, I'm Davis Norton, a rising senior at Ridge High School and the secretary for Hearts for Healing. I joined Hearts for Healing because I wanted the ability to better my community and those who help made and make it what it is.</p>
+          <p>Throughout my live I have always hoped everyone felt that they are appreciated no matter where they are in life, especially in places like veterans hospitals. This organization is how I believe that I can best best solve that problem while leaving an impact now and in the future in my current community and beyond.</p>
+          <p>Besides assisting with Hearts for Healing, I also enjoy hiking, skiing, traveling, photography, and aviation.</p>
+        </div>
+        <a href="about.html#leadership" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

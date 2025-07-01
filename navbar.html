@@ -1,0 +1,378 @@
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <img src="Hearts for healing .jpg" alt="Hearts for Healing" class="logo-img" style="width: 50px; height: 50px; object-fit: contain;">
+      <span class="logo-text">Hearts for Healing</span>
+      <span class="logo-pulse"></span>
+    </a>
+    
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      <span class="hamburger"></span>
+    </button>
+    
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="ourTeam.html" class="nav-link">Our Team</a></li>
+      <li><a href="get-involved.html" class="nav-link">Get Involved</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      
+    </ul>
+  </div>
+  <div class="nav-wave"></div>
+</nav>
+
+<style>
+  /* Base styles with animations */
+  .navbar {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    overflow: hidden;
+  }
+  
+  .nav-container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Logo animations */
+  .logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  
+  .logo:hover {
+    transform: scale(1.08) translateX(5px);
+  }
+  
+  .logo-img {
+    transition: all 0.6s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    z-index: 1;
+  }
+  
+  .logo:hover .logo-img {
+    transform: rotate(10deg) scale(1.15);
+    filter: drop-shadow(0 4px 8px rgba(231, 76, 60, 0.3)) brightness(1.1);
+    animation: heartbeat 1.5s ease infinite;
+  }
+  
+  .logo-text {
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  
+  .logo:hover .logo-text {
+    color: #e74c3c;
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  }
+  
+  .logo-pulse {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(231, 76, 60, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .logo:hover .logo-pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Hamburger menu animations */
+  .menu-toggle {
+    transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform-origin: center;
+  }
+  
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+  
+  .menu-toggle:active {
+    transform: scale(0.95);
+  }
+  
+  .hamburger {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #333;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    transform-origin: center;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 3px;
+    background: #333;
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    transform-origin: center;
+  }
+  
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger::after {
+    transform: translateY(8px);
+  }
+  
+  .menu-toggle.active .hamburger {
+    transform: rotate(135deg);
+    background: #e74c3c;
+  }
+  
+  .menu-toggle.active .hamburger::before {
+    transform: rotate(90deg) translateX(0);
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .hamburger::after {
+    transform: rotate(90deg) translateX(0);
+    background: #e74c3c;
+  }
+  
+  /* Nav menu animations */
+  .nav-menu {
+    transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  
+  /* Mobile menu dropdown */
+  @media (max-width: 768px) {
+    .nav-menu {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transform: translateY(-30px);
+      transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+    
+    .nav-menu.active {
+      opacity: 1;
+      max-height: 100vh;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Nav link animations */
+  .nav-link {
+    position: relative;
+    transition: all 0.4s ease;
+    transform-origin: left;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(231, 76, 60, 0.1), transparent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    z-index: -1;
+    border-radius: 4px;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+    transition: width 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 2px;
+  }
+  
+  .nav-link:hover {
+    transform: translateX(5px);
+    color: #e74c3c;
+  }
+  
+  .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  }
+  
+  /* Dark mode toggle animations */
+  .dark-mode-toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform-style: preserve-3d;
+  }
+  
+  .dark-mode-toggle i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+  }
+  
+  .dark-mode-toggle .fa-sun {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  
+  .dark-mode-toggle.active .fa-moon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  
+  .dark-mode-toggle.active .fa-sun {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  
+  .dark-mode-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+  }
+  
+  .dark-mode-toggle:active {
+    transform: rotate(0) scale(0.9);
+  }
+  
+  /* Wave animation at bottom of navbar */
+  .nav-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12, #e74c3c);
+    background-size: 200% 100%;
+    animation: wave 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .navbar:hover .nav-wave {
+    opacity: 1;
+  }
+  
+  /* Scroll effect */
+  .navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.96) !important;
+    backdrop-filter: blur(8px);
+  }
+  
+  .navbar.scrolled .nav-wave {
+    opacity: 1;
+    height: 3px;
+  }
+  
+  /* Keyframe animations */
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.5;
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes heartbeat {
+    0% { transform: rotate(10deg) scale(1.15); }
+    25% { transform: rotate(10deg) scale(1.2); }
+    50% { transform: rotate(10deg) scale(1.15); }
+    75% { transform: rotate(10deg) scale(1.2); }
+    100% { transform: rotate(10deg) scale(1.15); }
+  }
+  
+  @keyframes wave {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const navbar = document.querySelector('.navbar');
+    
+    // Hamburger menu toggle
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      
+      // Add bounce effect
+      if (this.classList.contains('active')) {
+        this.style.animation = 'none';
+        void this.offsetWidth; // Trigger reflow
+        this.style.animation = 'bounce 0.5s ease';
+      }
+    });
+    
+    // Dark mode toggle
+    darkModeToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.body.classList.toggle('dark-mode');
+      
+      // Add ripple effect
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+    
+    // Scroll effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Add animation to nav items on page load
+    const navItems = document.querySelectorAll('.nav-link');
+    navItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(10px)';
+      item.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1 + 0.3}s`;
+    });
+    
+    // Logo animation on page load
+    const logo = document.querySelector('.logo');
+    logo.style.opacity = '0';
+    logo.style.transform = 'scale(0.8)';
+    logo.style.animation = 'popIn 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards';
+  });
+</script>

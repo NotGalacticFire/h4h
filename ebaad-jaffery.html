@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ebaad Jaffery - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Ebaad-Jaffery.jpg" alt="Ebaad Jaffery">
+      </div>
+      <div class="profile-content">
+        <h1>Ebaad Jaffery</h1>
+        <p class="role">Texas Chapter President</p>
+        <div class="profile-bio">
+          <p>Hello I'm Ebaad Jaffery, the President of our Texas chapter. I'm passionate about bringing Hearts for Healing's mission to our local community and creating meaningful connections.</p>
+          <p>As chapter president, I oversee all our local initiatives, from hospital visits to community outreach programs. I believe that small acts of kindness can have a big impact on someone's healing journey.</p>
+          <p>When I'm not organizing chapter activities, you can find me volunteering at local hospitals or mentoring younger students interested in community service.</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

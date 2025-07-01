@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rayyan Mirza- Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="rayyan-mirza.png" alt="Rayyan Mirza">
+      </div>
+      <div class="profile-content">
+        <h1>Rayyan Mirza</h1>
+        <p class="role">Saudi Arabia Chapter Vice President</p>
+        <div class="profile-bio">
+          <p>Rayyan Mirza is a medical student at Batterjee Medical College. Formerly Headboy of his school,  Rayyan has led and contributed to impactful initiatives across Jeddah — including juvenile prison  health checkups, CPR awareness, public health campaigns, and Ramadan meal distribution.</p>
+          <p>He's  also raised awareness on women's health, food security, and bullying prevention through  interactive booths and workshops. Rayyan believes that healing starts with empathy, and is  passionate about bridging medicine and meaningful community action.</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+
+
+-->

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Team - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* MEDIA TEAM HERO STYLES */
+    .media-hero {
+      background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 50%, #d53e9f 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .paint-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M10,10 Q30,5 50,30 T90,10" stroke="rgba(255,255,255,0.2)" fill="none" stroke-width="4"/></svg>');
+      background-size: 300px;
+      opacity: 0.6;
+    }
+    
+    .media-logo i {
+      font-size: 3rem;
+      margin: 0 1rem;
+      color: white;
+      text-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    
+    .color-splashes .splash {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0.3;
+    }
+    
+    .splash.pink { background: #ff9ff3; top: 20%; left: 10%; }
+    .splash.blue { background: #48dbfb; bottom: 30%; right: 15%; }
+    .splash.yellow { background: #feca57; top: 60%; left: 80%; }
+
+    /* TEAM PAGE STYLES */
+    .team-page {
+      padding: 4rem 0;
+      background-color: var(--light);
+    }
+    
+    .team-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .team-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .team-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .team-description {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* LEADERSHIP SECTION */
+    .leadership-section {
+      margin-bottom: 4rem;
+    }
+    
+    .leadership-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .leadership-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .officers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .officer-card {
+      position: relative;
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(231, 84, 128, 0.15);
+      transition: var(--transition-normal);
+      border-top: 5px solid #f45b7a; /* Media team color */
+    }
+    
+    .officer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(231, 84, 128, 0.25);
+    }
+    
+    .officer-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f45b7a; /* Media team color */
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .officer-badge i {
+      font-size: 0.8rem;
+    }
+    
+    /* TEAM MEMBERS SECTION */
+    .members-section {
+      margin-top: 4rem;
+    }
+    
+    .members-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .members-header h3 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      display: inline-block;
+      border-bottom: 3px solid var(--primary-light);
+      padding-bottom: 0.5rem;
+    }
+    
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .member-card {
+      background: var(--white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+    
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .member-card:hover .member-image {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-name {
+      color: #f45b7a; /* Media team color */
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .member-bio {
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffb8d1; /* Lighter media color */
+      color: #f45b7a; /* Media team color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-normal);
+    }
+    
+    .social-link:hover {
+      background: #f45b7a; /* Media team color */
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* EMPTY MEMBER PLACEHOLDER */
+    .empty-member {
+      background: rgba(255,255,255,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      border: 2px dashed #ffb8d1; /* Lighter media color */
+    }
+    
+    .empty-member i {
+      font-size: 2rem;
+      color: #f45b7a; /* Media team color */
+      margin-bottom: 1rem;
+    }
+    
+    .empty-member p {
+      color: #f45b7a; /* Media team color */
+      font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+      .team-header h2 {
+        font-size: 2rem;
+      }
+      
+      .leadership-header h3,
+      .members-header h3 {
+        font-size: 1.5rem;
+      }
+      
+      .officers-grid,
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <!-- Hero Section -->
+ <!-- Media Team Hero with Creative Animations -->
+<header class="hero media-hero">
+  <!-- Color Splash Background -->
+  <div class="color-splash-bg">
+    <div class="splash splash-1"></div>
+    <div class="splash splash-2"></div>
+    <div class="splash splash-3"></div>
+    <div class="splash splash-4"></div>
+  </div>
+  
+  <!-- Floating Creative Tools -->
+  <div class="floating-tools">
+    <i class="fas fa-paint-brush tool-float"></i>
+    <i class="fas fa-film tool-float"></i>
+    <i class="fas fa-camera tool-float"></i>
+    <i class="fas fa-pen-fancy tool-float"></i>
+    <i class="fas fa-hashtag tool-float"></i>
+  </div>
+  
+  <!-- Animated Brush Strokes -->
+  <div class="brush-strokes">
+    <div class="stroke stroke-1"></div>
+    <div class="stroke stroke-2"></div>
+    <div class="stroke stroke-3"></div>
+  </div>
+  
+  <!-- Pixel Grid Animation -->
+  <div class="pixel-grid"></div>
+  
+  <div class="hero-content container">
+    <div class="media-logo">
+      <i class="fas fa-paint-brush logo-brush"></i>
+      <i class="fas fa-film logo-film"></i>
+      <i class="fas fa-hashtag logo-social"></i>
+    </div>
+    
+    <h1 class="animate-on-scroll">Media Team</h1>
+    <p class="animate-on-scroll" style="transition-delay: 0.2s">Crafting stories that move hearts</p>
+    
+    <!-- Interactive Color Palette 
+    <div class="color-palette">
+      <div class="color-swatch cs-1"></div>
+      <div class="color-swatch cs-2"></div>
+      <div class="color-swatch cs-3"></div>
+      <div class="color-swatch cs-4"></div>
+      <div class="color-swatch cs-5"></div>
+    </div>
+  </div>-->
+</header>
+
+<style>
+  /* Media Hero Container */
+  .media-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 50%, #d53e9f 100%);
+  }
+  
+  /* Color Splash Background */
+  .color-splash-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .splash {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.3;
+  }
+  
+  .splash-1 {
+    width: 300px;
+    height: 300px;
+    background: #ff9ff3;
+    top: -50px;
+    left: -50px;
+    animation: floatSplash 15s ease infinite;
+  }
+  
+  .splash-2 {
+    width: 400px;
+    height: 400px;
+    background: #48dbfb;
+    bottom: -100px;
+    right: -100px;
+    animation: floatSplash 18s ease infinite 3s;
+  }
+  
+  .splash-3 {
+    width: 250px;
+    height: 250px;
+    background: #feca57;
+    top: 30%;
+    left: 60%;
+    animation: floatSplash 12s ease infinite 6s;
+  }
+  
+  .splash-4 {
+    width: 350px;
+    height: 350px;
+    background: #1dd1a1;
+    bottom: 20%;
+    left: 20%;
+    animation: floatSplash 20s ease infinite 9s;
+  }
+  
+  @keyframes floatSplash {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(50px, 30px) scale(1.1); }
+    50% { transform: translate(-30px, 50px) scale(0.9); }
+    75% { transform: translate(40px, -20px) scale(1.05); }
+  }
+  
+  /* Floating Creative Tools */
+  .floating-tools {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .tool-float {
+    position: absolute;
+    color: rgba(255,255,255,0.2);
+    font-size: 2rem;
+    animation: floatTool 25s linear infinite;
+  }
+  
+  .tool-float:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .tool-float:nth-child(2) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 5s;
+  }
+  
+  .tool-float:nth-child(3) {
+    top: 40%;
+    left: 60%;
+    animation-delay: 10s;
+  }
+  
+  .tool-float:nth-child(4) {
+    top: 80%;
+    left: 20%;
+    animation-delay: 15s;
+  }
+  
+  .tool-float:nth-child(5) {
+    top: 30%;
+    left: 85%;
+    animation-delay: 20s;
+  }
+  
+  @keyframes floatTool {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.3; }
+    50% { transform: translate(50px, 30px) rotate(180deg); opacity: 0.5; }
+    90% { opacity: 0.3; }
+    100% { transform: translate(100px, 0) rotate(360deg); opacity: 0; }
+  }
+  
+  /* Brush Stroke Animations */
+  .brush-strokes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .stroke {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    height: 8px;
+    border-radius: 4px;
+    transform-origin: left center;
+  }
+  
+  .stroke-1 {
+    width: 40%;
+    top: 30%;
+    left: 10%;
+    transform: rotate(15deg);
+    animation: brushStroke 8s ease infinite;
+  }
+  
+  .stroke-2 {
+    width: 30%;
+    top: 60%;
+    left: 60%;
+    transform: rotate(-10deg);
+    animation: brushStroke 10s ease infinite 3s;
+  }
+  
+  .stroke-3 {
+    width: 50%;
+    top: 75%;
+    left: 20%;
+    transform: rotate(5deg);
+    animation: brushStroke 12s ease infinite 6s;
+  }
+  
+  @keyframes brushStroke {
+    0%, 100% { width: 0; opacity: 0; }
+    20% { opacity: 0.5; }
+    50% { width: 40%; opacity: 0.8; }
+    80% { opacity: 0.5; }
+  }
+  
+  /* Pixel Grid Animation */
+  .pixel-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: pixelScan 10s linear infinite;
+    z-index: 1;
+  }
+  
+  @keyframes pixelScan {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+  }
+  
+  /* Media Logo Animation */
+  .media-logo {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .logo-brush, .logo-film, .logo-social {
+    font-size: 3rem;
+    margin: 0 1rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+    transition: all 0.5s ease;
+    display: inline-block;
+  }
+  
+  .media-logo:hover .logo-brush {
+    transform: rotate(15deg) translateY(-10px);
+    color: #feca57;
+  }
+  
+  .media-logo:hover .logo-film {
+    transform: scale(1.3) translateY(-15px);
+    color: #48dbfb;
+  }
+  
+  .media-logo:hover .logo-social {
+    transform: rotate(-15deg) translateY(-10px);
+    color: #1dd1a1;
+  }
+  
+  /* Interactive Color Palette */
+  .color-palette {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 3;
+  }
+  
+  .color-swatch {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  .cs-1 { background: #ff4e7e; animation: palettePulse 3s ease infinite; }
+  .cs-2 { background: #feca57; animation: palettePulse 3s ease infinite 0.5s; }
+  .cs-3 { background: #48dbfb; animation: palettePulse 3s ease infinite 1s; }
+  .cs-4 { background: #1dd1a1; animation: palettePulse 3s ease infinite 1.5s; }
+  .cs-5 { background: #9b59b6; animation: palettePulse 3s ease infinite 2s; }
+  
+  .color-swatch:hover {
+    transform: translateY(-10px) scale(1.3);
+  }
+  
+  @keyframes palettePulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+  }
+  
+  /* Text Animation */
+  .hero-content h1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #feca57;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease 0.5s;
+  }
+  
+  .hero-content h1.animate-on-scroll::after {
+    transform: scaleX(1);
+  }
+</style>
+
+  <!-- Main Content -->
+  <main class="team-page">
+    <div class="container">
+      <div class="team-header">
+        <h2>Our Media Team</h2>
+      </div>
+      
+      <div class="team-description">
+        <p>Our creative media team produces all the visual content that helps share our mission with the world. From social media graphics to video storytelling, they bring our work to life through compelling visual narratives.</p>
+      </div>
+      
+      <!-- Leadership Section -->
+      <section class="leadership-section">
+        <div class="leadership-header">
+          <h3>Media Leadership</h3>
+        </div>
+        
+        <div class="officers-grid">
+          <!-- Raina Prasad -->
+          <div class="member-card officer-card animate-on-scroll">
+            <div class="officer-badge">
+              <i class="fas fa-crown"></i>
+              <span>Production Lead</span>
+            </div>
+            <img src="Raina.jpg" alt="Raina Prasad" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Raina Prasad</h3>
+              <p class="member-role">Events coordinator</p>
+              <p class="member-bio">Leads our creative vision and ensures all content aligns with our brand identity. Specializes in graphic design and visual storytelling.</p>
+              <div class="social-links">
+                <a href="https://www.instagram.com/raina.prasad_?igsh=dWtsczFjOTNlYTgx" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/raina-prasad-70494631a/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:rainap1178@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sidd -->
+          <div class="member-card officer-card animate-on-scroll" style="transition-delay: 0.1s">
+            <div class="officer-badge">
+              <i class="fas fa-star"></i>
+              <span>Creative Director</span>
+            </div>
+            <img src="Sidd.jpg" alt="Sidd" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Sidd Narayanabhatla</h3>
+              <p class="member-role">Social Media Manager</p>
+              <p class="member-bio">Oversees our social media strategy and content calendar. Creates engaging posts that grow our online community.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:siddnbhatla@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Rishi -->
+          <div class="member-card officer-card animate-on-scroll" style="transition-delay: 0.2s">
+            <div class="officer-badge">
+              <i class="fas fa-star"></i>
+              <span>Content Lead</span>
+            </div>
+            <img src="Rishi.jpg" alt="Rishi" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Rishi Santhanam</h3>
+              <p class="member-role">Outreach Manager</p>
+              <p class="member-bio">(ADD SMT)</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:rsh.santh@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Team Members Section -->
+      <section class="members-section">
+        <div class="members-header">
+          <h3>Media Creatives</h3>
+        </div>
+        
+        <div class="members-grid">
+          <!-- Graphic Designer -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.3s">
+            <img src="images/team/media-designer.jpg" alt="Graphic Designer" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Future Member</h3>
+              <p class="member-role">Graphic Designer</p>
+              <p class="member-bio">We're looking for talented designers to create visual content for our campaigns and social media.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Photographer -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.4s">
+            <img src="images/team/media-photographer.jpg" alt="Photographer" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Position Open</h3>
+              <p class="member-role">Photographer</p>
+              <p class="member-bio">Help us capture powerful images that showcase our impact and tell our story visually.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-camera"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Content Writer -->
+          <div class="member-card animate-on-scroll" style="transition-delay: 0.5s">
+            <img src="images/team/media-writer.jpg" alt="Content Writer" class="member-image">
+            <div class="member-info">
+              <h3 class="member-name">Join Our Team</h3>
+              <p class="member-role">Content Writer</p>
+              <p class="member-bio">We need creative writers to craft compelling captions, articles, and stories about our work.</p>
+              <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-pen-fancy"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('beforeend', data);
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+</body>
+</html>

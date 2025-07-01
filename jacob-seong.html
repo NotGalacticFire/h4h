@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacob Seong - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="jacob-seong.jpg" alt="Pratham">
+      </div>
+      <div class="profile-content">
+        <h1>Jacob Seong</h1>
+        <p class="role">South Korea Chapter President</p>
+        <div class="profile-bio">
+          <p>Hey guys! My name is Jacob Seong, currently a junior interested in health and psychology! I truly believe that everyone, regardless of background, where you're from, what you do, etc. deserves access to health products to foster both physical and mental well-being.</p>
+          <p>Through this organization, I see a world that can truly heal hearts and bring together a society where there's no such thing as impoverished, less fortunate people.</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+ 
+
+-->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samantha Young - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Samantha-Young.jpg" alt="Samantha Young">
+      </div>
+      <div class="profile-content">
+        <h1>Samantha Young</h1>
+        <p class="role">Los Angeles Chapter Outreach Officer</p>
+        <div class="profile-bio">
+          <p>Hello, I'm Samantha Young and I'm a 10th grader at North Hollywood High School. I joined this nonprofit because it provides a meaningful way to give back to the community and give support to those who need it.</p>
+          <p>I'm passionate about making connections with others and helping out in any way that I can. Meeting and creating relationships with new people makes me so happy, and I would love to spread positivity whenever I have the chance. In my free time I love taking walks, crocheting, and playing with my bunny.</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+ 
+
+-->

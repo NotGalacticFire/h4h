@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samaya Patel - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Samaya-Patel.jpg" alt="Samaya Patel">
+      </div>
+      <div class="profile-content">
+        <h1>Samaya Patel</h1>
+        <p class="role">Los Angeles Chapter Vice President</p>
+        <div class="profile-bio">
+          <p>Hello I'm Samaya, I'm a sophomore at North Hollywood High School. I joined this nonprofit to make sure that everybody no matter their situation feels that they are thought of and able to maintain positivity.</p>
+          <p>I'm passionate about giving back to my community and inclusivity. In my free time I enjoy playing volleyball, Minecraft, Pokémon go, and hanging out with my friends. </p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+<!--
+. I'm passionate about giving back to my community and inclusivity. In my free time I enjoy playing volleyball, Minecraft, Pokémon go, and hanging out with my friends. 
+-->

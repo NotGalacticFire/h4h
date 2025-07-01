@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratham - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="pratham.png" alt="Pratham">
+      </div>
+      <div class="profile-content">
+        <h1>Pratham Sarkar</h1>
+        <p class="role">San Jose Chapter President</p>
+        <div class="profile-bio">
+          <p>Hi! My name is Pratham, and I am a rising senior at Evergreen Valley High School. I will be leading the San Jose chapter. I joined this nonprofit to make a meaningful contribution through even the smallest acts of kindness and to help bring comfort to patients during some of their most difficult moments.</p>
+          <p>I am passionate about the field of biotechnology, using research and innovation to find solutions to real-world problems.
+            In my free time, you can find me listening to music or binge-watching shows.</p>
+        </div>
+        <a href="about.html" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+
+
+-->

@@ -1,0 +1,40 @@
+<!-- nick-elissa.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nick Elissa - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Nick.jpg" alt="Nick Elissa">
+      </div>
+      <div class="profile-content">
+        <h1>Nick Elissa</h1>
+        <p class="role">Vice President</p>
+        <div class="profile-bio">
+          <p>Hi, I'm Nick Elissa, a rising senior at ridge high school and vice president of hearts for healing. In my free time I enjoy hanging out with friends, running cross country, and trying new foods.</p>
+          <p>It is important to help out the community, especially for those in need, and hearts for healing is a perfect way to do so! Acts of friendliness such as heartfelt cards or gifts go a long way to make someone's life better.</p>
+        </div>
+        <a href="../about.html#leadership" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="../script.js"></script>
+</body>
+</html>
