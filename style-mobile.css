@@ -205,23 +205,25 @@ section {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100vw;
     left: 0;
+    right: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(226, 84, 128, 0.98); /* semi-transparent overlay */
+    background: rgba(226, 84, 128, 0.98);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0;
     gap: 2.5rem;
-    opacity: 1;
+    opacity: 0;
+    pointer-events: none;
     z-index: 2000;
     box-shadow: none;
-    transition: right 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.3s ease;
   }
   .nav-menu.active {
-    right: 0;
+    opacity: 1;
+    pointer-events: auto;
   }
   .nav-link {
     font-size: 1.5rem;
@@ -243,8 +245,8 @@ section {
     z-index: 2100;
   }
   .logo-img {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     padding: 2px;
   }
 }
