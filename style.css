@@ -94,6 +94,7 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 section {
@@ -106,7 +107,7 @@ section {
   margin-bottom: 3rem;
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== NAVIGATION (Unified & Fixed) ===== */
 .navbar {
   position: sticky;
   top: 0;
@@ -116,14 +117,15 @@ section {
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(10px);
 }
-p{
-  text-align: center;
-}
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .logo {
@@ -145,6 +147,10 @@ p{
   display: flex;
   gap: 2rem;
   list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  transition: left 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-link {
@@ -153,19 +159,19 @@ p{
   padding: 0.5rem 1rem;
   border-radius: 50px;
   transition: var(--transition-normal);
+  font-size: 1.1rem;
 }
 
 .nav-link:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Mobile Menu */
 .menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .hamburger {
@@ -194,11 +200,11 @@ p{
   bottom: -8px;
 }
 
+/* ===== MOBILE NAVIGATION ===== */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
-
   .nav-menu {
     position: fixed;
     top: 0;
@@ -207,12 +213,25 @@ p{
     height: 100vh;
     background: var(--primary-dark);
     flex-direction: column;
+    align-items: flex-start;
     padding: 5rem 2rem;
-    transition: var(--transition-normal);
+    gap: 2rem;
+    opacity: 1;
+    z-index: 1050;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   }
-
   .nav-menu.active {
     left: 0;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 0;
+    border-radius: 0;
+  }
+  .nav-container {
+    padding: 0 1rem;
   }
 }
 
@@ -1043,30 +1062,9 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100vh;
-    background: var(--primary-dark);
-    flex-direction: column;
-    padding: 2rem;
-    transition: var(--transition-normal);
-    z-index: 1000;
-  }
-
-  .nav-menu.active {
-    left: 1;
-  }
-
   .hero {
     min-height: auto;
-    padding: 6rem 1.5rem;
+    padding: 3rem 1rem;
   }
 
   .team-grid {
@@ -1076,7 +1074,7 @@ textarea.form-control {
 
 @media (max-width: 576px) {
   h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
 
   .btn {
     width: 100%;
@@ -1197,29 +1195,40 @@ textarea.form-control {
 }
 
 .faq-question {
-  padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  padding: 1.5rem;
+}
+
+.faq-question i {
+  font-size: 2rem;
+  min-width: 2.2rem;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  display: inline;
 }
 
 .faq-question:hover {
   background: #f9f9f9;
 }
 
-.faq-question h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: var(--primary);
-}
-
-.faq-question i {
-  transition: transform 0.3s ease;
-}
-
 .faq-answer {
+  text-align: center;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -1675,3 +1684,140 @@ textarea.form-control {
   }
   /* Add more mobile-specific tweaks as needed */
 }
+
+/* === Make officer and member cards bigger for Media Team === */
+.officer-card, .member-card {
+  min-height: 480px; /* Increased from default */
+  height: auto;      /* Allow to grow with content */
+  padding-bottom: 2.5rem; /* More space for text */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.member-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .officer-card, .member-card {
+    min-height: 380px;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Left-align text in member cards for team pages */
+.tech-team-page .member-card .member-info,
+.media-team-page .member-card .member-info,
+.management-team-page .member-card .member-info {
+  text-align: left;
+}
+
+/* If the pages do not have these body classes, use a more general selector for the three HTML files */
+.tech-team-page .member-card .member-info h3,
+.media-team-page .member-card .member-info h3,
+.management-team-page .member-card .member-info h3,
+.tech-team-page .member-card .member-info p,
+.media-team-page .member-card .member-info p,
+.management-team-page .member-card .member-info p {
+  text-align: left;
+}
+
+/* Fallback: for these three pages only, target .team-page .member-card .member-info */
+.team-page .member-card .member-info {
+  text-align: left !important;
+}
+
+.team-page .member-card .member-info h3,
+.team-page .member-card .member-info p {
+  text-align: left !important;
+}
+
+/* FORCE left-align text in member cards for team pages */
+.team-page .member-card .member-info,
+.team-page .member-card .member-info h3,
+.team-page .member-card .member-info p {
+  text-align: left !important;
+}
+
+/* Center the team description and title on team pages */
+.team-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.team-description {
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+  display: block;
+  font-size: 1.6rem;
+  color: #4a3c3c;
+}
+
+/* Make contact rectangles smaller, more rounded, and closer together */
+.social-stack > .social-card {
+  max-width: 400px;
+  margin: 0 auto 1.5rem auto;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+}
+.social-stack > .social-card:last-child {
+  margin-bottom: 0;
+}
+.social-card .social-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 1rem;
+}
+
+/* Display contact rectangles in a grid format on Contact Us page */
+.social-stack {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.social-stack > .social-card {
+  margin: 0;
+  min-height: 260px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .social-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Partner image background and centering for About page partners */
+.partner-image-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 140px;
+  border-radius: 1.2rem 1.2rem 0 0;
+  overflow: hidden;
+}
+.partner-image-bg img {
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  background: transparent;
+}
+
+

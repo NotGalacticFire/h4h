@@ -287,6 +287,9 @@
         grid-template-columns: 1fr;
       }
     }
+    .member-card .member-info {
+      text-align: left !important;
+    }
   </style>
 </head>
 <body>
@@ -680,11 +683,11 @@
   <main class="team-page">
     <div class="container">
       <div class="team-header">
-        <h2>Our Management Team</h2>
+        <h1 class="team-title">Our Management Team</h1>
       </div>
       
       <div class="team-description">
-        <p>Our management team provides strategic direction and operational leadership to ensure we fulfill our mission effectively. They oversee planning, partnerships, and organizational growth while maintaining our core values.</p>
+        Our dedicated management team oversees operations, coordinates initiatives, and ensures our organization runs smoothly. These are the leaders who guide our mission and support every member of Hearts for Healing.
       </div>
       
       <!-- Leadership Section -->
@@ -762,7 +765,10 @@
         <div class="members-grid">
           <!-- Program Manager -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.3s">
-            <img src="images/team/management-program.jpg" alt="Program Manager" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Future Member</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Future Member</h3>
               <p class="member-role">Program Manager</p>
@@ -777,7 +783,10 @@
           
           <!-- Finance Coordinator -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.4s">
-            <img src="images/team/management-finance.jpg" alt="Finance Coordinator" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Position Open</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Position Open</h3>
               <p class="member-role">Finance Coordinator</p>
@@ -792,7 +801,10 @@
           
           <!-- Volunteer Coordinator -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.5s">
-            <img src="images/team/management-volunteer.jpg" alt="Volunteer Coordinator" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Join Our Team</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Join Our Team</h3>
               <p class="member-role">Volunteer Coordinator</p>

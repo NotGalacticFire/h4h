@@ -645,17 +645,22 @@
   .hero-content h1.animate-on-scroll::after {
     transform: scaleX(1);
   }
+
+  .member-card .member-info {
+    text-align: left !important;
+  }
+
 </style>
 
   <!-- Main Content -->
   <main class="team-page">
     <div class="container">
       <div class="team-header">
-        <h2>Our Tech Team</h2>
+        <h1 class="team-title">Our Tech Team</h1>
       </div>
       
       <div class="team-description">
-        <p>Our talented tech team develops and maintains all the digital platforms that help us connect with communities and deliver our services. From website development to Discord management, these are the people who keep our digital heart beating.</p>
+        Our talented tech team develops and maintains all the digital platforms that help us connect with communities and deliver our services. From website development to Discord management, these are the people who keep our digital heart beating.
       </div>
       
       <!-- Leadership Section -->
@@ -715,7 +720,10 @@
         <div class="members-grid">
           <!-- Frontend Developer -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.2s">
-            <img src="images/team/tech-member2.jpg" alt="Frontend Developer" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Future Member</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Future Member</h3>
               <p class="member-role">Frontend Developer</p>
@@ -730,7 +738,10 @@
           
           <!-- Discord Manager -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.3s">
-            <img src="images/team/tech-member3.jpg" alt="Discord Manager" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Position Open</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Position Open</h3>
               <p class="member-role">Discord Manager</p>
@@ -745,7 +756,10 @@
           
           <!-- Backend Developer -->
           <div class="member-card animate-on-scroll" style="transition-delay: 0.4s">
-            <img src="images/team/tech-member4.jpg" alt="Backend Developer" class="member-image">
+            <div class="empty-member">
+              <i class="fas fa-user-plus"></i>
+              <p>Join Our Team</p>
+            </div>
             <div class="member-info">
               <h3 class="member-name">Join Our Team</h3>
               <p class="member-role">Backend Developer</p>
