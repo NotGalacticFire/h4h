@@ -23,6 +23,22 @@
   <div class="nav-wave"></div>
 </nav>
 
+<!-- Mobile Navbar (visible only on mobile) -->
+<nav class="mobile-navbar">
+  <a href="index.html" class="mobile-logo">Hearts for Healing</a>
+  <div id="mobileLinks" class="mobile-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="ourTeam.html">Our Team</a>
+    <a href="get-involved.html">Get Involved</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <a href="javascript:void(0);" class="mobile-icon" id="mobileMenuToggle" aria-label="Open menu">
+    <i class="fa fa-bars"></i>
+  </a>
+</nav>
+
 <style>
   /* Base styles with animations */
   .navbar {
@@ -121,6 +137,7 @@
     background: #333;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform-origin: center;
+    z-index: 3000;
   }
   
   .hamburger::before {
@@ -132,9 +149,9 @@
   }
   
   .menu-toggle.active .hamburger {
-    transform: rotate(135deg);
+    transform: rotate(135deg); 
     background: #e74c3c;
-  }
+  } 
   
   .menu-toggle.active .hamburger::before {
     transform: rotate(90deg) translateX(0);

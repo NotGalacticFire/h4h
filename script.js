@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollToTop();
     initFAQ();
     initTabbedInterfaces();
+    initMobileMenuToggle();
   } catch (error) {
     console.error('Initialization error:', error);
   }
@@ -324,5 +325,25 @@ function openTab(evt, tabName) {
     }
   } catch (error) {
     console.error('Tab switching failed:', error);
+  }
+}
+
+// ===== MOBILE NAVBAR TOGGLE =====
+window.initMobileMenuToggle = function() {
+  var mobileToggle = document.getElementById('mobileMenuToggle');
+  var mobileLinks = document.getElementById('mobileLinks');
+  if (mobileToggle && mobileLinks) {
+    mobileToggle.addEventListener('click', function() {
+      var isOpen = mobileLinks.style.display === 'block';
+      mobileLinks.style.display = isOpen ? 'none' : 'block';
+      document.body.classList.toggle('mobile-menu-open', !isOpen);
+    });
+    // Close menu when a link is clicked
+    mobileLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileLinks.style.display = 'none';
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
   }
 }

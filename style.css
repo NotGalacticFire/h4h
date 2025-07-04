@@ -1820,4 +1820,10 @@ textarea.form-control {
   background: transparent;
 }
 
+@media (min-width: 769px) {
+  .mobile-navbar {
+    display: none !important;
+  }
+}
+
 
