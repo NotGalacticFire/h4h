@@ -23,22 +23,6 @@
   <div class="nav-wave"></div>
 </nav>
 
-<!-- Mobile Navbar (visible only on mobile) -->
-<nav class="mobile-navbar">
-  <a href="index.html" class="mobile-logo">Hearts for Healing</a>
-  <div id="mobileLinks" class="mobile-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="ourTeam.html">Our Team</a>
-    <a href="get-involved.html">Get Involved</a>
-    <a href="contact.html">Contact</a>
-    <a href="faq.html">FAQ</a>
-  </div>
-  <a href="javascript:void(0);" class="mobile-icon" id="mobileMenuToggle" aria-label="Open menu">
-    <i class="fa fa-bars"></i>
-  </a>
-</nav>
-
 <style>
   /* Base styles with animations */
   .navbar {
@@ -331,6 +315,12 @@
   @keyframes wave {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
+  }
+  
+  @media (min-width: 769px) {
+    .hero-mobile-header {
+      display: none !important;
+    }
   }
 </style>
 

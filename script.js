@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
     initTabbedInterfaces();
     initMobileMenuToggle();
+    heroHamburgerVisibilityLogic();
   } catch (error) {
     console.error('Initialization error:', error);
   }
@@ -337,13 +338,69 @@ window.initMobileMenuToggle = function() {
       var isOpen = mobileLinks.style.display === 'block';
       mobileLinks.style.display = isOpen ? 'none' : 'block';
       document.body.classList.toggle('mobile-menu-open', !isOpen);
+      //console.log('Mobile menu toggled');
     });
     // Close menu when a link is clicked
     mobileLinks.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         mobileLinks.style.display = 'none';
         document.body.classList.remove('mobile-menu-open');
+          
       });
     });
   }
 }
+
+// ===== HERO/STICKY HAMBURGER VISIBILITY LOGIC =====
+window.addEventListener('DOMContentLoaded', function() {
+  function setupMobileHeaders() {
+    if (window.innerWidth <= 768) {
+      var heroHeader = document.getElementById('heroMobileHeader');
+      var stickyHeader = document.getElementById('stickyMobileHeader');
+      var heroHamburger = document.getElementById('heroHamburger');
+      var stickyHamburger = document.getElementById('stickyHamburger');
+      // Show sticky header only when hero header is out of view
+      if (heroHeader && stickyHeader) {
+        var observer = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) {
+            document.body.classList.remove('show-sticky-header');
+          } else {
+            document.body.classList.add('show-sticky-header');
+          }
+          // Always re-attach hamburger listeners after visibility change
+          attachHamburgerListeners();
+        }, { threshold: 0.01 });
+        observer.observe(heroHeader);
+      }
+      function openMobileMenu() {
+        
+        var mobileLinks = document.getElementById('mobileLinks');
+        if (mobileLinks) {
+          mobileLinks.style.display = 'block';
+          document.body.classList.add('mobile-menu-open');
+        }
+        
+      }
+      function attachHamburgerListeners() {
+        var heroHamburger = document.getElementById('heroHamburger');
+        var stickyHamburger = document.getElementById('stickyHamburger');
+        if (heroHamburger) heroHamburger.onclick = openMobileMenu;
+        if (stickyHamburger) stickyHamburger.onclick = openMobileMenu;
+      }
+      attachHamburgerListeners();
+    }
+  }
+  setupMobileHeaders();
+  document.addEventListener('navbarLoaded', setupMobileHeaders);
+});
+
+// After navbar is inserted, dispatch navbarLoaded event
+(function() {
+  var origInsert = document.querySelector('body').insertAdjacentHTML;
+  document.querySelector('body').insertAdjacentHTML = function(position, html) {
+    var result = origInsert.call(this, position, html);
+    var event = new Event('navbarLoaded');
+    document.dispatchEvent(event);
+    return result;
+  };
+})();
