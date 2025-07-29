@@ -19,11 +19,151 @@
       font-size: 1.3rem;
       border-radius: 2em;
       padding: 0.7em 2.2em;
-      margin-bottom: 1.5em;
-      margin-top: 0.5em;
+      margin: 0;
       text-align: center;
       letter-spacing: 0.01em;
       box-shadow: 0 2px 8px rgba(232, 93, 142, 0.04);
+    }
+
+    .chapter-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    /* Team Icon Styles for Our Teams Tab */
+    .team-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover .team-icon {
+      transform: translateY(-5px) scale(1.1);
+      color: var(--primary-dark);
+    }
+
+    /* Enhanced Team Card Styles for Our Teams Tab */
+    #meet-our-team .team-card {
+      background: white;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    #meet-our-team .team-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    #meet-our-team .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    #meet-our-team .team-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    #meet-our-team .team-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      font-size: 1.5rem;
+    }
+
+    #meet-our-team .team-card:hover h3 {
+      color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    #meet-our-team .team-card p {
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    #meet-our-team .team-card:hover p {
+      transform: translateY(-3px);
+    }
+
+    #meet-our-team .team-card .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(231, 84, 128, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #meet-our-team .team-card .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: all 0.5s ease;
+    }
+
+    #meet-our-team .team-card .btn:hover {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(231, 84, 128, 0.4);
+    }
+
+    #meet-our-team .team-card .btn:hover::before {
+      left: 100%;
+    }
+
+    /* Center Our Chapters section */
+    .section-title {
+      text-align: center !important;
+    }
+
+    .section-subtitle {
+      text-align: center !important;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+    }
+
+    /* Chapter divider lines */
+    .chapter-divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #333, transparent);
+      opacity: 0.3;
+    }
+
+    .chapter-divider.top {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-divider.bottom {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
@@ -35,10 +175,96 @@
       .then(response => response.text())
       .then(data => {
         document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-        if (typeof initNavbar === 'function') initNavbar();
-        if (typeof initMobileMenuToggle === 'function') initMobileMenuToggle();
+        
+        // Initialize navbar functionality after DOM insertion
+        initNavbarFunctionality();
       })
       .catch(error => console.error('Error loading navbar:', error));
+      
+    function initNavbarFunctionality() {
+      console.log('Initializing navbar functionality...');
+      
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      const navbar = document.querySelector('.navbar');
+      
+      console.log('Elements found:', {
+        menuToggle: !!menuToggle,
+        navMenu: !!navMenu,
+        menuOverlay: !!menuOverlay
+      });
+      
+      function closeMenu() {
+        console.log('Closing menu...');
+        if (menuToggle) menuToggle.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+      
+      function openMenu() {
+        console.log('Opening menu...');
+        if (menuToggle) menuToggle.classList.add('active');
+        if (navMenu) navMenu.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+      
+      // Hamburger menu toggle
+      if (menuToggle) {
+        console.log('Adding click listener to menu toggle');
+        menuToggle.addEventListener('click', function(e) {
+          console.log('Menu toggle clicked!');
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (this.classList.contains('active')) {
+            closeMenu();
+          } else {
+            openMenu();
+            
+            // Add bounce effect
+            this.style.animation = 'none';
+            void this.offsetWidth; // Trigger reflow
+            this.style.animation = 'bounce 0.5s ease';
+          }
+        });
+      } else {
+        console.error('Menu toggle not found!');
+      }
+      
+      // Close menu when clicking overlay
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+      }
+      
+      // Close menu when clicking nav links
+      if (navMenu) {
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+      }
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
+      
+      // Scroll effect
+      window.addEventListener('scroll', function() {
+        if (navbar) {
+          if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+      });
+    }
   </script>
 
   <!-- Hero Section -->
@@ -64,6 +290,7 @@
         <button class="tab-btn active" onclick="openTab(event, 'leadership')">Leadership</button>
         <!--<button class="tab-btn" onclick="openTab(event, 'volunteers')">Volunteers</button>-->
         <button class="tab-btn" onclick="openTab(event, 'partners')">Partners</button>
+        <button class="tab-btn" onclick="openTab(event, 'meet-our-team')">Our Teams</button>
         <!-- New Form Tabs -->
         <button class="tab-btn" onclick="openTab(event, 'volunteer-form')">Volunteer Form</button>
         <button class="tab-btn" onclick="openTab(event, 'chapter-form')">Start a Chapter</button>
@@ -248,20 +475,42 @@
             </div>
           </div>
 
-          <div class="team-card">
-            <div class="partner-image-bg" style="background: #f7f2fa;">
-              <img src="Knit.png" alt="Hospital Partner">
-            </div>
-            <div class="team-info">
-              <h3>Knit Crochet with Love</h3>
-              <p class="role">Healthcare Partner</p>
-              <p>Partners since 2025.</p>
-            </div>
-          </div>
-
           
         </div>
       </div>
+
+      <!-- Meet Our Team Tab Content -->
+      <div id="meet-our-team" class="tab-content" style="display:none">
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Tech Team</h3>
+            <p>Web development, technical tools, and Discord management.</p>
+            <a href="tech-team.html" class="btn btn-small">View Tech Team</a>
+          </div>
+
+          <div class="team-card">
+            <div class="team-icon">
+              <i class="fas fa-photo-video"></i>
+            </div>
+            <h3>Media Team</h3>
+            <p>Graphics, social media, and video storytelling.</p>
+            <a href="media-team.html" class="btn btn-small">View Media Team</a>
+          </div>
+
+          <div class="team-card">
+            <div class="team-icon">
+              <i class="fas fa-users-cog"></i>
+            </div>
+            <h3>Management Team</h3>
+            <p>Leadership, scheduling, and strategic planning.</p>
+            <a href="management-team.html" class="btn btn-small">View Management Team</a>
+          </div>
+        </div>
+      </div>
+
     <!-- New Volunteer Form Tab -->
       <div id="volunteer-form" class="tab-content" style="display:none">
         <div class="form-container">
@@ -278,14 +527,16 @@
     </section>
 
       <!-- Chapters -->
-<section class="chapters-section animate-on-scroll">
+<section id="chapters" class="chapters-section animate-on-scroll">
   <div class="container">
     <h2 class="section-title">Our Chapters</h2>
     <p class="section-subtitle">Expanding our healing mission across the country</p>
     
     <!-- Frisco, Texas Chapter -->
-    <div class="chapter-group">
+    <div id="frisco-chapter" class="chapter-group">
+      <div class="chapter-divider top"></div>
       <h3 class="chapter-title"><span class="chapter-pill">Frisco, Texas</span></h3>
+      <div class="chapter-divider bottom"></div>
       <div class="team-grid"> <!-- Using the same grid as team cards -->
         <!-- President -->
         <div class="team-card">
@@ -306,7 +557,7 @@
           </a>
           <div class="team-info">
             <h3>Arham Javed</h3>
-            <p class="role"></p>
+            <p class="role">Co-President</p>
             <a href="arham-javed.html" class="btn btn-small">View Profile</a>
           </div>
         </div>
@@ -317,7 +568,7 @@
           </a>
           <div class="team-info">
             <h3>Aazmeer Siddiqui</h3>
-            <p class="role"></p>
+            <p class="role">Co-President</p>
             <a href="aazmeer-siddiqui.html" class="btn btn-small">View Profile</a>
           </div>
         </div>
@@ -326,9 +577,10 @@
     </div>
     
     <!-- Los Angeles, California Chapter -->
-    <br>
-    <div class="chapter-group">
+    <div id="la-chapter" class="chapter-group">
+      <div class="chapter-divider top"></div>
       <h3 class="chapter-title"><span class="chapter-pill">Los Angeles, California</span></h3>
+      <div class="chapter-divider bottom"></div>
       <div class="team-grid"> <!-- Using the same grid as team cards -->
         <!-- President -->
         <div class="team-card">
@@ -349,8 +601,20 @@
           </a>
           <div class="team-info">
             <h3>Samaya Patel</h3>
-            <p class="role">Co-President</p>
+            <p class="role">Vice President</p>
             <a href="samaya-patel.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Vice President -->
+        <div class="team-card">
+          <a href="amy-alaniz.html" class="team-image-link">
+            <img src="Amy-Alaniz.jpg" alt="Amy Alaniz">
+          </a>
+          <div class="team-info">
+            <h3>Amy Alaniz</h3>
+            <p class="role">Vice President</p>
+            <a href="amy-alaniz.html" class="btn btn-small">View Profile</a>
           </div>
         </div>
 
@@ -382,9 +646,10 @@
     </div>
 
     <!-- San Jose, California Chapter -->
-    <br>
-    <div class="chapter-group">
+    <div id="sanjose-chapter" class="chapter-group">
+      <div class="chapter-divider top"></div>
       <h3 class="chapter-title"><span class="chapter-pill">San Jose, California</span></h3>
+      <div class="chapter-divider bottom"></div>
       <div class="team-grid"> <!-- Using the same grid as team cards -->
         <!-- President -->
         <div class="team-card">
@@ -451,9 +716,10 @@
     </div>
 
     <!--South Korea Chapter-->
-    <br>
-    <div class="chapter-group">
+    <div id="korea-chapter" class="chapter-group">
+      <div class="chapter-divider top"></div>
       <h3 class="chapter-title"><span class="chapter-pill">South Korea</span></h3>
+      <div class="chapter-divider bottom"></div>
       <div class="team-grid"> <!-- Using the same grid as team cards -->
         <!-- President -->
         <div class="team-card">
@@ -474,7 +740,7 @@
           </a>
           <div class="team-info">
             <h3>Eunyul Cho</h3>
-            <p class="role">Vice President <!-- check role !!!--></p>
+            <p class="role">Secretary</p>
             <a href="eunyul-cho.html" class="btn btn-small">View Profile</a>
           </div>
         </div>
@@ -495,9 +761,10 @@
     </div>
     
      <!--Saudi Arabia Chapter-->
-     <br>
-     <div class="chapter-group">
+     <div id="saudi-chapter" class="chapter-group">
+       <div class="chapter-divider top"></div>
        <h3 class="chapter-title"><span class="chapter-pill">Saudi Arabia</span></h3>
+       <div class="chapter-divider bottom"></div>
        <div class="team-grid"> <!-- Using the same grid as team cards -->
          <!-- President -->
          <div class="team-card">
@@ -638,5 +905,28 @@
 
   <script src="script.js"></script>
   <script src="animations.js"></script>
+  
+  <script>
+    // Ensure page starts at top when accessed directly, but allow anchors from back buttons
+    window.addEventListener('load', function() {
+      // Check if there's a hash in the URL
+      if (window.location.hash) {
+        // Check if this is a direct navigation (no referrer from our own site)
+        const referrer = document.referrer;
+        const currentDomain = window.location.hostname;
+        
+        // If coming from our own site (like from a profile page), allow the anchor
+        if (referrer && referrer.includes(currentDomain)) {
+          // Let the browser handle the anchor normally
+          return;
+        } else {
+          // If direct navigation or from external site, scroll to top
+          setTimeout(function() {
+            window.scrollTo(0, 0);
+          }, 100);
+        }
+      }
+    });
+  </script>
 </body>
 </html>

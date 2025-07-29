@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style-mobile.css" media="only screen and (max-width: 768px)">
   <link rel="stylesheet" href="animations.css">
   <style>
-    /* TEMPORARY INLINE STYLES TO GUARANTEE CENTERING */
+    /* MOBILE RESPONSIVE FIXES */
     .centered-container {
       display: flex;
       flex-direction: column;
@@ -32,6 +32,93 @@
       text-align: center;
       width: 300px;
     }
+
+    /* Mobile-specific hero fixes */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem !important;
+        text-align: center;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem !important;
+        text-align: center;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 90%;
+      }
+      
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+        align-items: center;
+      }
+      
+      .hero-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+      
+      .mission-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      
+      .mission-card {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      /* Prevent horizontal scroll */
+      body {
+        overflow-x: hidden;
+      }
+      
+      /* Fix any text that might not be centered */
+      h1, h2, h3 {
+        text-align: center;
+      }
+      
+      p {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -41,10 +128,96 @@
       .then(response => response.text())
       .then(data => {
         document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-        if (typeof initNavbar === 'function') initNavbar();
-        if (typeof initMobileMenuToggle === 'function') initMobileMenuToggle();
+        
+        // Initialize navbar functionality after DOM insertion
+        initNavbarFunctionality();
       })
       .catch(error => console.error('Error loading navbar:', error));
+      
+    function initNavbarFunctionality() {
+      console.log('Initializing navbar functionality...');
+      
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      const navbar = document.querySelector('.navbar');
+      
+      console.log('Elements found:', {
+        menuToggle: !!menuToggle,
+        navMenu: !!navMenu,
+        menuOverlay: !!menuOverlay
+      });
+      
+      function closeMenu() {
+        console.log('Closing menu...');
+        if (menuToggle) menuToggle.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+      
+      function openMenu() {
+        console.log('Opening menu...');
+        if (menuToggle) menuToggle.classList.add('active');
+        if (navMenu) navMenu.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+      
+      // Hamburger menu toggle
+      if (menuToggle) {
+        console.log('Adding click listener to menu toggle');
+        menuToggle.addEventListener('click', function(e) {
+          console.log('Menu toggle clicked!');
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (this.classList.contains('active')) {
+            closeMenu();
+          } else {
+            openMenu();
+            
+            // Add bounce effect
+            this.style.animation = 'none';
+            void this.offsetWidth; // Trigger reflow
+            this.style.animation = 'bounce 0.5s ease';
+          }
+        });
+      } else {
+        console.error('Menu toggle not found!');
+      }
+      
+      // Close menu when clicking overlay
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+      }
+      
+      // Close menu when clicking nav links
+      if (navMenu) {
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+      }
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
+      
+      // Scroll effect
+      window.addEventListener('scroll', function() {
+        if (navbar) {
+          if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+      });
+    }
   </script>
 
   <!-- Hero Section with Image -->

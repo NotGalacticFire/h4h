@@ -203,35 +203,121 @@ section {
 /* ===== MOBILE NAVIGATION ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: block !important;
+    position: relative;
+    z-index: 1100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
   }
+  
+  .hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger::before {
+    top: -8px;
+  }
+  
+  .hamburger::after {
+    bottom: -8px;
+  }
+  
+  .menu-toggle.active .hamburger {
+    background: transparent;
+  }
+  
+  .menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  
+  .menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+  
   .nav-menu {
     position: fixed;
     top: 0;
     left: -100%;
     width: 80%;
     height: 100vh;
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
     flex-direction: column;
     align-items: flex-start;
     padding: 5rem 2rem;
     gap: 2rem;
     opacity: 1;
     z-index: 1050;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+    transition: left 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
+  
   .nav-menu.active {
     left: 0;
   }
+  
   .nav-link {
     font-size: 1.2rem;
     width: 100%;
     text-align: left;
     padding: 1rem 0;
     border-radius: 0;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
+  
+  .nav-link:hover {
+    color: #f39c12;
+    transform: translateX(10px);
+    background: rgba(255,255,255,0.1);
+    padding-left: 1rem;
+  }
+  
   .nav-container {
     padding: 0 1rem;
+  }
+  
+  /* Menu overlay */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
   }
 }
 
@@ -1120,6 +1206,7 @@ textarea.form-control {
 .profile-content .role {
   font-size: 1.2rem;
   color: var(--secondary);
+  text-align: center;
   margin-bottom: 2rem;
 }
 
@@ -1656,6 +1743,16 @@ textarea.form-control {
 /* 2) Turn the button into a block and auto‑margin it */
 .team-card .team-info .btn.btn-small {
   display: block;
+  margin: 0 auto;
+}
+
+/* Center the back button in profile pages */
+.profile-content .btn {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0;
+  text-align: center;
+}play: block;
   margin: 1rem auto 0;  /* top‑space plus centered horizontally */
   float: none;          /* cancel any floats, if present */
 }
