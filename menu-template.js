@@ -1,124 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Hearts for Healing</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="style-mobile.css" media="only screen and (max-width: 768px)">
-  <link rel="stylesheet" href="animations.css" />
-
-  <style>
-    .btn-small {
-      display: inline-block;
-      padding: 0.6rem 1.5rem;
-      font-weight: 600;
-      font-size: 1rem;
-      color: white;
-      background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
-      border: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(238, 9, 121, 0.4);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .btn-small:hover,
-    .btn-small:focus {
-      background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
-      box-shadow: 0 6px 20px rgba(255, 106, 0, 0.6);
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .social-card {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      background: white;
-    }
-
-    .social-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      z-index: 10;
-    }
-
-    .social-card:hover .social-icon img.social-img {
-      transform: scale(1.1);
-      transition: transform 0.3s ease;
-    }
-
-    .social-icon img.social-img {
-      transition: transform 0.3s ease;
-    }
-
-    /* Shine effect */
-    .social-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.4) 50%,
-          rgba(255, 255, 255, 0) 100%);
-      transform: skewX(-25deg);
-      pointer-events: none;
-    }
-
-    .social-card:hover::before {
-      animation: shine 2s forwards;
-    }
-
-    @keyframes shine {
-      from {
-        left: -75%;
-      }
-
-      to {
-        left: 125%;
-      }
-    }
-
-    .section-header .subtitle {
-      text-align: center !important;
-      display: block;
-      width: 100%;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Navbar -->
-  <script>
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-
-        // Initialize beautiful animated hamburger menu
-        setTimeout(() => {
-          const hamburger = document.querySelector('.hero-hamburger') || document.querySelector('.menu-toggle');
-          if (hamburger) {
-            hamburger.addEventListener('click', function () {
-              createAnimatedMenu();
-            });
-          }
-        }, 500);
-      })
-      .catch(error => console.error('Error loading navbar:', error));
-
+// Complete menu function template
+const menuScript = `
     function createAnimatedMenu() {
       // Remove existing menu if present
       const existingMenu = document.getElementById('premium-menu');
@@ -131,7 +12,7 @@
 
       const menu = document.createElement('div');
       menu.id = 'premium-menu';
-      menu.style.cssText = `
+      menu.style.cssText = \`
         position: fixed;
         top: 0;
         left: 0;
@@ -149,9 +30,9 @@
         transform: scale(0.9);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         overflow: hidden;
-      `;
+      \`;
 
-      menu.innerHTML = `
+      menu.innerHTML = \`
         <!-- Animated Background -->
         <div style="position: absolute; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
           <div style="position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius: 50%; top: 15%; left: 10%; animation: floatSlow 15s ease-in-out infinite;"></div>
@@ -371,11 +252,11 @@
             animation-delay: 1s;
           ">Tap anywhere to close</p>
         </div>
-      `;
+      \`;
 
       // Add CSS animations
       const style = document.createElement('style');
-      style.textContent = `
+      style.textContent = \`
         @keyframes floatSlow {
           0%, 100% { transform: translate(0, 0) scale(1); }
           50% { transform: translate(20px, -15px) scale(1.1); }
@@ -426,7 +307,7 @@
         .menu-item:active {
           transform: translateY(-2px) scale(0.98) !important;
         }
-      `;
+      \`;
       document.head.appendChild(style);
 
       // Close menu functionality
@@ -462,137 +343,6 @@
         menu.style.transform = 'scale(1)';
       }, 50);
     }
-  </script>
+`;
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content animate-on-scroll">
-      <h1>Contact Us</h1>
-      <p class="delay-1">Get in touch with our team</p>
-    </div>
-  </header>
-
-  <!-- Social Diamond Section -->
-  <section class="social-cards">
-    <div class="container">
-      <div class="social-stack">
-        <!-- GoFundMe Card -->
-        <div class="social-card animate-fade-up">
-          <div class="social-icon">
-            <img src="Donate.jpg" alt="GoFundMe Icon" class="social-img" />
-          </div>
-          <h3>Support Us</h3>
-          <p>Contribute to our GoFundMe campaign</p>
-          <a href="https://www.gofundme.com/f/bringing-smiles-to-nj-hospital-patients" class="btn btn-small"
-            target="_blank">Donate</a>
-        </div>
-
-        <!-- Instagram Card -->
-        <div class="social-card animate-fade-up" style="animation-delay: 0.2s">
-          <div class="social-icon">
-            <img src="Insta.jpg" alt="Instagram Icon" class="social-img" />
-          </div>
-          <h3>Follow Us</h3>
-          <p>See our latest updates on Instagram</p>
-          <a href="https://www.instagram.com/heartsforhealing_/" class="btn btn-small"
-            target="_blank">@heartsforhealing_</a>
-        </div>
-
-        <!-- LinkedIn Card -->
-        <div class="social-card animate-fade-up" style="animation-delay: 0.4s">
-          <div class="social-icon">
-            <img src="Linkden.jpg" alt="LinkedIn Icon" class="social-img" />
-          </div>
-          <h3>Connect</h3>
-          <p>Join our professional network</p>
-          <a href="https://www.linkedin.com/company/hearts-for-healing/" class="btn btn-small"
-            target="_blank">LinkedIn</a>
-        </div>
-
-        <!-- Email Card -->
-        <div class="social-card animate-fade-up" style="animation-delay: 0.6s">
-          <div class="social-icon">
-            <img src="Gmail.jpg" alt="Email Icon" class="social-img" />
-          </div>
-          <h3>Email Us</h3>
-          <p>Send us a message directly</p>
-          <a href="mailto:heartsforhealing2025@gmail.com" class="btn btn-small">heartsforhealing2025@gmail.com</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <h2>Send us a Message</h2>
-      </div>
-
-      <div class="contact-form animate-on-scroll">
-        <form id="contactForm" action="https://formspree.io/f/mvgavzbe" method="POST">
-          <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" name="name" class="form-control" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required />
-          </div>
-
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" class="form-control" required></textarea>
-          </div>
-
-          <!-- Honeypot field for spam prevention -->
-          <input type="text" name="_gotcha" style="display:none" />
-
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const form = document.getElementById('contactForm');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' },
-        });
-
-        if (response.ok) {
-          alert('Message sent successfully!');
-          form.reset();
-        } else {
-          alert('Failed to send message.');
-        }
-      } catch (error) {
-        alert('Failed to send message.');
-        console.error(error);
-      }
-    });
-  </script>
-
-  <script src="script.js"></script>
-  <script src="animations.js"></script>
-  <script>
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.body.insertAdjacentHTML('beforeend', data);
-      })
-      .catch(error => console.error('Error loading footer:', error));
-  </script>
-</body>
-
-</html>
+console.log(menuScript);

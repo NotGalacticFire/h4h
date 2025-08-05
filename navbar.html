@@ -88,8 +88,15 @@
     animation: pulse 2s infinite;
   }
   
-  /* Hamburger menu animations */
+  /* Hamburger menu - Base styles */
   .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+    padding: 0.5rem;
     transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     transform-origin: center;
   }
@@ -106,7 +113,7 @@
     display: block;
     width: 26px;
     height: 3px;
-    background: #333;
+    background: white;
     position: relative;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform-origin: center;
@@ -118,10 +125,10 @@
     position: absolute;
     width: 26px;
     height: 3px;
-    background: #333;
+    background: white;
+    left: 0;
     transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     transform-origin: center;
-    z-index: 3000;
   }
   
   .hamburger::before {
@@ -133,18 +140,17 @@
   }
   
   .menu-toggle.active .hamburger {
-    transform: rotate(135deg); 
-    background: #e74c3c;
+    background: transparent;
   } 
   
   .menu-toggle.active .hamburger::before {
-    transform: rotate(90deg) translateX(0);
-    opacity: 0;
+    transform: rotate(45deg);
+    top: 0;
   }
   
   .menu-toggle.active .hamburger::after {
-    transform: rotate(90deg) translateX(0);
-    background: #e74c3c;
+    transform: rotate(-45deg);
+    bottom: 0;
   }
   
   /* Nav menu animations */
@@ -155,7 +161,7 @@
   /* Mobile menu dropdown */
   @media (max-width: 768px) {
     .menu-toggle {
-      display: block;
+      display: block !important;
     }
     
     .nav-menu {
@@ -164,7 +170,7 @@
       left: -100%;
       width: 80%;
       height: 100vh;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      background: linear-gradient(135deg, #C2456D, #E75480);
       flex-direction: column;
       align-items: flex-start;
       padding: 5rem 2rem 2rem;
@@ -199,12 +205,6 @@
     
     .nav-container {
       padding: 0 1rem;
-    }
-    
-    .hamburger,
-    .hamburger::before,
-    .hamburger::after {
-      background: white;
     }
     
     /* Mobile menu overlay */
