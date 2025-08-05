@@ -5,8 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ebaad Jaffery - Hearts for Healing</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-mobile.css" media="only screen and (max-width: 768px)">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Mobile-responsive fixes for individual person pages */
+    @media (max-width: 768px) {
+      .team-profile {
+        padding: 2rem 1rem !important;
+        margin-top: 0 !important;
+      }
+      
+      .profile-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      
+      .profile-image {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      
+      .profile-image img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px !important;
+        border-radius: 15px !important;
+        object-fit: cover !important;
+      }
+      
+      .profile-content {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 1rem !important;
+      }
+      
+      .profile-content h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+      }
+      
+      .profile-content .role {
+        font-size: 1.1rem !important;
+        margin-bottom: 1.5rem !important;
+        text-align: center !important;
+        color: var(--primary) !important;
+        font-weight: 600 !important;
+      }
+      
+      .profile-bio {
+        text-align: left !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+      }
+      
+      .profile-bio p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+      }
+      
+      .btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        padding: 1rem 2rem !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <script>
@@ -14,7 +93,288 @@
       .then(response => response.text())
       .then(data => {
         document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+        
+        // Initialize beautiful animated hamburger menu
+        setTimeout(() => {
+          const hamburger = document.querySelector('.hero-hamburger') || document.querySelector('.menu-toggle');
+          if (hamburger) {
+            hamburger.addEventListener('click', function() {
+              createAnimatedMenu();
+            });
+          }
+        }, 500);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+
+    function createAnimatedMenu() {
+      // Remove existing menu if present
+      const existingMenu = document.getElementById('premium-menu');
+      if (existingMenu) {
+        existingMenu.style.opacity = '0';
+        existingMenu.style.transform = 'scale(0.9)';
+        setTimeout(() => existingMenu.remove(), 400);
+        return;
+      }
+
+      const menu = document.createElement('div');
+      menu.id = 'premium-menu';
+      menu.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 25%, #e85d8e 50%, #d53e9f 75%, #c23a8b 100%);
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: 'Poppins', Arial, sans-serif;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+      `;
+
+      menu.innerHTML = `
+        <!-- Logo Section -->
+        <div style="position: relative; z-index: 3; text-align: center; margin-bottom: 3rem;">
+          <div style="
+            width: 100px; 
+            height: 100px; 
+            margin: 0 auto 1.5rem; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+          ">
+            <img src="generated-icon.png" alt="Hearts for Healing Logo" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;" />
+          </div>
+        </div>
+        
+        <!-- Menu Items -->
+        <div style="position: relative; z-index: 3; width: 100%; max-width: 350px;">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <a href="index.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-home"></i></div>
+              <span style="flex: 1;">Home</span>
+            </a>
+            
+            <a href="about.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-info-circle"></i></div>
+              <span style="flex: 1;">About</span>
+            </a>
+            
+            <a href="get-involved.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-hands-helping"></i></div>
+              <span style="flex: 1;">Get Involved</span>
+            </a>
+            
+            <a href="contact.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-phone"></i></div>
+              <span style="flex: 1;">Contact</span>
+            </a>
+            
+            <a href="faq.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-question-circle"></i></div>
+              <span style="flex: 1;">FAQ</span>
+            </a>
+          </div>
+          
+          <p style="
+            text-align: center;
+            margin-top: 2rem; 
+            opacity: 0.6; 
+            color: rgba(255,255,255,0.6); 
+            font-size: 0.9rem;
+          ">Tap anywhere to close</p>
+        </div>
+      `;
+
+      // Add CSS animations
+      const style = document.createElement('style');
+      style.textContent = `
+        .menu-item:hover {
+          background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%) !important;
+          transform: translateY(-5px) scale(1.02) !important;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+        
+        .menu-item:hover > div:first-child {
+          transform: scale(1.1) !important;
+          background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%) !important;
+        }
+        
+        .menu-item:active {
+          transform: translateY(-2px) scale(0.98) !important;
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Close menu functionality
+      menu.addEventListener('click', function (e) {
+        if (e.target === menu || e.target.tagName === 'P') {
+          menu.style.opacity = '0';
+          menu.style.transform = 'scale(0.9)';
+          setTimeout(() => menu.remove(), 400);
+        }
       });
+
+      // Menu item click handlers
+      const menuItems = menu.querySelectorAll('.menu-item');
+      menuItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+          e.stopPropagation();
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            menu.style.opacity = '0';
+            menu.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+              window.location.href = this.href;
+            }, 200);
+          }, 100);
+        });
+      });
+
+      document.body.appendChild(menu);
+
+      // Show menu
+      setTimeout(() => {
+        menu.style.opacity = '1';
+        menu.style.transform = 'scale(1)';
+      }, 50);
+    }
   </script>
 
   <main class="team-profile">
