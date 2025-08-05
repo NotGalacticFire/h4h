@@ -5,8 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eli Yoshizaki - Hearts for Healing</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-mobile.css" media="only screen and (max-width: 768px)">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Mobile-responsive fixes for individual person pages */
+    @media (max-width: 768px) {
+      .team-profile {
+        padding: 2rem 1rem !important;
+        margin-top: 0 !important;
+      }
+      
+      .profile-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 2rem !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      
+      .profile-image {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      
+      .profile-image img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px !important;
+        border-radius: 15px !important;
+        object-fit: cover !important;
+      }
+      
+      .profile-content {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 1rem !important;
+      }
+      
+      .profile-content h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center !important;
+      }
+      
+      .profile-content .role {
+        font-size: 1.1rem !important;
+        margin-bottom: 1.5rem !important;
+        text-align: center !important;
+        color: var(--primary) !important;
+        font-weight: 600 !important;
+      }
+      
+      .profile-bio {
+        text-align: left !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+      }
+      
+      .profile-bio p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+      }
+      
+      .btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem !important;
+        padding: 1rem 2rem !important;
+        font-size: 1rem !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <script>
@@ -14,7 +93,8 @@
       .then(response => response.text())
       .then(data => {
         document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-      });
+      })
+      .catch(error => console.error('Error loading navbar:', error));
   </script>
 
   <main class="team-profile">
