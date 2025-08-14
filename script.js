@@ -352,13 +352,16 @@ window.initMobileMenuToggle = function() {
 }
 
 // ===== HERO/STICKY HAMBURGER VISIBILITY LOGIC =====
-window.addEventListener('DOMContentLoaded', function() {
+// Handles showing a sticky header once the hero section scrolls out of view
+// and attaches hamburger menu listeners for mobile layouts.
+function heroHamburgerVisibilityLogic() {
   function setupMobileHeaders() {
     if (window.innerWidth <= 768) {
       var heroHeader = document.getElementById('heroMobileHeader');
       var stickyHeader = document.getElementById('stickyMobileHeader');
       var heroHamburger = document.getElementById('heroHamburger');
       var stickyHamburger = document.getElementById('stickyHamburger');
+
       // Show sticky header only when hero header is out of view
       if (heroHeader && stickyHeader) {
         var observer = new IntersectionObserver(function(entries) {
@@ -372,27 +375,30 @@ window.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.01 });
         observer.observe(heroHeader);
       }
+
       function openMobileMenu() {
-        
         var mobileLinks = document.getElementById('mobileLinks');
         if (mobileLinks) {
           mobileLinks.style.display = 'block';
           document.body.classList.add('mobile-menu-open');
         }
-        
       }
+
       function attachHamburgerListeners() {
         var heroHamburger = document.getElementById('heroHamburger');
         var stickyHamburger = document.getElementById('stickyHamburger');
         if (heroHamburger) heroHamburger.onclick = openMobileMenu;
         if (stickyHamburger) stickyHamburger.onclick = openMobileMenu;
       }
+
       attachHamburgerListeners();
     }
   }
+
+  // Run once on load and again whenever the navbar HTML is dynamically inserted
   setupMobileHeaders();
   document.addEventListener('navbarLoaded', setupMobileHeaders);
-});
+}
 
 // After navbar is inserted, dispatch navbarLoaded event
 (function() {
