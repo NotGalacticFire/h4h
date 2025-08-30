@@ -197,8 +197,103 @@ section {
 /* ===== MOBILE NAVIGATION ===== */
 @media (max-width: 768px) {
   .navbar {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: var(--primary) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+  }
+  
+  .nav-container {
+    padding: 0.7rem 1.5rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem !important;
+  }
+  
+  .logo-img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  /* Ensure hamburger button is visible and functional */
+  .navbar .menu-toggle {
+    display: block !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 1100 !important;
+    position: relative !important;
+    padding: 0.5rem !important;
+    width: auto !important;
+    height: auto !important;
+    margin-left: auto !important;
+  }
+  
+  .navbar .hamburger {
+    display: block !important;
+    width: 26px !important;
+    height: 3px !important;
+    background: white !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar .hamburger::before,
+  .navbar .hamburger::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 26px !important;
+    height: 3px !important;
+    background: white !important;
+    left: 0 !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar .hamburger::before {
+    transform: translateY(-8px) !important;
+  }
+  
+  .navbar .hamburger::after {
+    transform: translateY(8px) !important;
+  }
+  
+  /* Make sure hamburger is clickable */
+  .navbar .menu-toggle:hover .hamburger {
+    background: rgba(255,255,255,0.8) !important;
+  }
+  
+  .navbar .menu-toggle:hover .hamburger::before,
+  .navbar .menu-toggle:hover .hamburger::after {
+    background: rgba(255,255,255,0.8) !important;
+  }
+  
+  /* Force hamburger visibility with maximum specificity */
+  body .navbar .nav-container .menu-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  body .navbar .nav-container .menu-toggle .hamburger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Hide desktop nav menu */
+  .nav-menu {
     display: none !important;
   }
+  
   .mobile-navbar {
     display: none !important;
   }
@@ -350,76 +445,75 @@ section {
 
 /* === COMPREHENSIVE MOBILE FIXES === */
 @media (max-width: 768px) {
-  /* Global centering and responsive fixes */
-  .container, .team-section, .team-grid, .team-card, .team-info, .section-header, .team-title, .team-description, .faq-section, .faq-grid, .faq-card, .faq-question, .faq-answer, .member-card, .officer-card {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    align-items: center !important;
-    justify-content: center !important;
+  /* Global mobile optimizations */
+  * {
+    box-sizing: border-box !important;
   }
   
-  /* Grid layouts */
-  .team-grid, .faq-grid, .mission-grid, .values-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
   }
   
-  /* Card sizing */
-  .team-card, .faq-card, .member-card, .officer-card, .mission-card, .value-card {
-    width: 100% !important;
-    max-width: 350px !important;
-    margin: 0 auto 2rem auto !important;
+  body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
   
-  /* Text and content */
-  .team-info, .faq-answer {
-    padding: 0 1rem !important;
+  /* Container improvements */
+  .container {
+    padding: 0 1.5rem !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
   }
   
-  /* Social and other grids */
-  .social-stack, .diamond-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 100vw !important;
+  /* Section spacing improvements */
+  .section {
+    padding: 4rem 0 !important;
   }
   
-  /* Hero section mobile fixes */
+  /* Ensure first section doesn't get hidden behind navbar */
+  .section:first-of-type, main:first-of-type {
+    padding-top: 5rem !important;
+  }
+  
+  /* Hero section - native mobile feel */
   .hero {
     min-height: 100vh !important;
-    padding: 2rem 1rem !important;
+    padding: 5rem 1.5rem 2rem 1.5rem !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
+    margin-top: 0 !important;
   }
   
   .hero-content {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 1rem !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
   }
   
-  .hero-title {
+  .hero-title, .hero h1 {
     font-size: 2.5rem !important;
     text-align: center !important;
     margin-bottom: 1rem !important;
     width: 100% !important;
+    line-height: 1.2 !important;
   }
   
-  .hero-subtitle {
+  .hero-subtitle, .hero p {
     font-size: 1.1rem !important;
     text-align: center !important;
     margin-bottom: 2rem !important;
     width: 100% !important;
     max-width: 90% !important;
+    line-height: 1.5 !important;
   }
   
   .hero-buttons {
@@ -427,53 +521,128 @@ section {
     flex-direction: column !important;
     gap: 1rem !important;
     width: 100% !important;
-    max-width: 300px !important;
+    max-width: 320px !important;
     align-items: center !important;
   }
   
-  .hero-btn {
+  .hero-btn, .btn {
     width: 100% !important;
     text-align: center !important;
-    padding: 1rem 2rem !important;
+    padding: 1.2rem 2rem !important;
     font-size: 1rem !important;
+    border-radius: 12px !important;
+    margin: 0.5rem 0 !important;
   }
   
-  /* Section spacing */
-  .section {
-    padding: 3rem 0 !important;
+  /* Card layouts - native mobile feel */
+  .team-grid, .faq-grid, .mission-grid, .values-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    width: 100% !important;
   }
   
-  .container {
-    padding: 0 1rem !important;
+  .team-card, .faq-card, .member-card, .officer-card, .mission-card, .value-card {
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto 1.5rem auto !important;
+    padding: 2rem 1.5rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+    background: white !important;
+  }
+  
+  /* Team card images */
+  .team-card img, .member-card img, .officer-card img {
+    width: 100% !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Text improvements */
+  .team-info, .faq-answer {
+    padding: 1rem 0 !important;
+    text-align: center !important;
+  }
+  
+  .team-info h3, .member-name {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+  }
+  
+  .team-info .role, .member-role {
+    font-size: 1rem !important;
+    color: var(--primary) !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+  }
+  
+  .team-info p, .member-bio {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Social and contact grids */
+  .social-stack, .diamond-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 1.5rem !important;
+  }
+  
+  .social-card {
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    padding: 2rem 1.5rem !important;
+    border-radius: 16px !important;
   }
   
   /* Typography mobile fixes */
   h1, h2, h3, h4, h5, h6 {
     text-align: center !important;
     width: 100% !important;
+    margin-bottom: 1rem !important;
   }
+  
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 2rem !important; }
+  h3 { font-size: 1.5rem !important; }
   
   p {
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto 1.5rem auto !important;
+    line-height: 1.6 !important;
   }
   
   /* Tab system mobile fixes */
   .team-tabs {
+    display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
   }
   
   .tab-btn {
     font-size: 0.9rem !important;
-    padding: 0.5rem 1rem !important;
+    padding: 0.8rem 1.2rem !important;
+    border-radius: 25px !important;
+    margin: 0.25rem !important;
   }
   
   /* Chapter sections */
   .chapters-section {
-    padding: 3rem 1rem !important;
+    padding: 4rem 1.5rem !important;
   }
   
   .chapter-group {
@@ -482,34 +651,130 @@ section {
   
   .chapter-pill {
     font-size: 1.1rem !important;
-    padding: 0.6em 1.8em !important;
+    padding: 0.8em 2em !important;
+    border-radius: 30px !important;
   }
   
-  /* Profile pages */
+  /* Individual profile pages - major improvements */
+  .team-profile {
+    padding: 2rem 1.5rem !important;
+    margin-top: 0 !important;
+  }
+  
   .profile-container {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-    padding: 2rem 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     text-align: center !important;
+    gap: 2.5rem !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    background: white !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1) !important;
+    margin: 2rem auto !important;
+    overflow: hidden !important;
   }
   
   .profile-image {
-    max-width: 250px !important;
+    width: 100% !important;
+    max-width: 320px !important;
     margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 2rem 2rem 0 2rem !important;
+  }
+  
+  .profile-image img {
+    width: 100% !important;
+    height: 320px !important;
+    max-width: 280px !important;
+    border-radius: 20px !important;
+    object-fit: cover !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
   }
   
   .profile-content {
+    width: 100% !important;
     text-align: center !important;
+    padding: 0 2rem 2rem 2rem !important;
   }
   
-  /* Forms */
+  .profile-content h1 {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+    color: var(--dark) !important;
+  }
+  
+  .profile-content .role {
+    font-size: 1.2rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+  }
+  
+  .profile-bio {
+    text-align: left !important;
+    line-height: 1.7 !important;
+    margin-bottom: 2.5rem !important;
+    background: var(--light) !important;
+    padding: 1.5rem !important;
+    border-radius: 15px !important;
+  }
+  
+  .profile-bio p {
+    font-size: 1rem !important;
+    margin-bottom: 1.2rem !important;
+    text-align: left !important;
+    color: var(--text) !important;
+  }
+  
+  .profile-content .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    padding: 1.2rem 2.5rem !important;
+    font-size: 1rem !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Forms and inputs */
   .form-container {
-    padding: 0 1rem !important;
+    padding: 0 1.5rem !important;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .form-control {
+    width: 100% !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
   }
   
   iframe {
     width: 100% !important;
     height: 400px !important;
+    border-radius: 12px !important;
+  }
+  
+  /* Navigation improvements */
+  .nav-menu {
+    display: none !important;
+  }
+  
+  /* Ensure no horizontal scroll */
+  .hero, .section, .container, .team-grid, .social-stack {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
 }
 

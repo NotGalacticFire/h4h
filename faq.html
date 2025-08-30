@@ -21,10 +21,25 @@
         // Initialize beautiful animated hamburger menu
         setTimeout(() => {
           const hamburger = document.querySelector('.hero-hamburger') || document.querySelector('.menu-toggle');
+          console.log('Hamburger element found:', hamburger); // Debug log
           if (hamburger) {
             hamburger.addEventListener('click', function() {
+              console.log('Hamburger clicked!'); // Debug log
               createAnimatedMenu();
             });
+          } else {
+            console.log('Hamburger button not found! Trying again...'); // Debug log
+            // Try again after a longer delay
+            setTimeout(() => {
+              const hamburger2 = document.querySelector('.menu-toggle');
+              console.log('Second attempt - Hamburger found:', hamburger2);
+              if (hamburger2) {
+                hamburger2.addEventListener('click', function() {
+                  console.log('Hamburger clicked on second attempt!');
+                  createAnimatedMenu();
+                });
+              }
+            }, 1000);
           }
         }, 500);
       })
