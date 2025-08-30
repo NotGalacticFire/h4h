@@ -1,7 +1,40 @@
 // ===== GLOBAL FUNCTIONS =====
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+function setupHamburgerCapture() {
+  try {
+    let lastOpenAt = 0;
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.menu-toggle, #heroHamburger, #stickyHamburger');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+      const now = Date.now();
+      if (now - lastOpenAt < 400) return;
+      lastOpenAt = now;
+      if (typeof window.createPremiumMenu === 'function') { window.createPremiumMenu(); return; }
+      if (typeof window.createAnimatedMenu === 'function') { window.createAnimatedMenu(); return; }
+      try {
+        const toggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const body = document.body;
+        if (toggle && navMenu) {
+          toggle.classList.toggle('active');
+          navMenu.classList.toggle('active');
+          body.style.overflow = toggle.classList.contains('active') ? 'hidden' : '';
+        }
+      } catch (_) {}
+    }, true);
+  } catch (err) {
+    console.error('Hamburger handler setup failed:', err);
+  }
+}
+
+// Install capture handler ASAP
+setupHamburgerCapture();
+
+function runInit() {
   try {
     // Initialize all components
     initNavbar();
@@ -17,6 +50,25 @@ document.addEventListener('DOMContentLoaded', function() {
   } catch (error) {
     console.error('Initialization error:', error);
   }
+
+  // Re-initialize navbar after it's injected dynamically
+  document.addEventListener('navbarLoaded', function() {
+    try { initNavbar(); } catch (e) {}
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', runInit);
+} else {
+  runInit();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    // no-op: kept for backward compatibility
+  } catch (error) {
+    console.error('Initialization error:', error);
+  }
 });
 
 // ===== NAVIGATION =====
@@ -26,8 +78,19 @@ function initNavbar() {
   const body = document.body;
 
   if (menuToggle && navMenu) {
-    // Mobile menu toggle
-    menuToggle.addEventListener('click', function() {
+    // Mobile menu toggle (prefer premium overlay if available)
+    menuToggle.addEventListener('click', function(e) {
+      if (typeof window.createPremiumMenu === 'function') {
+        e.preventDefault();
+        window.createPremiumMenu();
+        return;
+      }
+      if (typeof window.createAnimatedMenu === 'function') {
+        e.preventDefault();
+        // Do not toggle drawer; open overlay menu instead
+        window.createAnimatedMenu();
+        return;
+      }
       this.classList.toggle('active');
       navMenu.classList.toggle('active');
       body.style.overflow = this.classList.contains('active') ? 'hidden' : '';
@@ -55,6 +118,11 @@ function initNavbar() {
     
   }
 }
+
+// Re-initialize navbar after it's injected dynamically
+document.addEventListener('navbarLoaded', function() {
+  try { initNavbar(); } catch (e) { /* no-op */ }
+});
 
 function highlightCurrentPage() {
   try {

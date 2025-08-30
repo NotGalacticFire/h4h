@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="animations.css">
+  <script src="premium-menu.js"></script>
   <style>
     .chapter-pill {
       display: inline-block;
@@ -186,7 +187,7 @@
           }
         }, 500);
       })
-      .catch(error => console.error('Error loading navbar:', error));
+      .catch(error => { console.error('Error loading navbar:', error); if (window.__insertFallbackNavbar) window.__insertFallbackNavbar(); });
 
     function createAnimatedMenu() {
       // Remove existing menu if present
@@ -1171,6 +1172,50 @@
 
   <script src="script.js"></script>
   <script src="animations.js"></script>
+  <script>
+    // Ensure overlay menu implementation matches home page (override any inline definitions)
+    if (window.createPremiumMenu) {
+      window.createAnimatedMenu = window.createPremiumMenu;
+    }
+  </script>
+  <script>
+    // Fallback navbar insertion for local file protocol or fetch failures
+    (function() {
+      function insertFallbackNavbar() {
+        if (document.querySelector('nav.navbar')) return;
+        var html = `
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">
+      <img src="Hearts for healing .jpg" alt="Hearts for Healing" class="logo-img" style="width: 50px; height: 50px; object-fit: contain;">
+      <span class="logo-text">Hearts for Healing</span>
+      <span class="logo-pulse"></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu"><i class="fa fa-bars"></i></button>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="get-involved.html" class="nav-link">Get Involved</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+    </ul>
+  </div>
+  <div class="menu-overlay"></div>
+  <div class="nav-wave"></div>
+</nav>`;
+        document.body.insertAdjacentHTML('afterbegin', html);
+        document.dispatchEvent(new Event('navbarLoaded'));
+      }
+      window.__insertFallbackNavbar = insertFallbackNavbar;
+      if (window.location.protocol === 'file:') {
+        insertFallbackNavbar();
+      } else {
+        setTimeout(function() {
+          if (!document.querySelector('nav.navbar')) insertFallbackNavbar();
+        }, 250);
+      }
+    })();
+  </script>
   
   <script>
     // Ensure page starts at top when accessed directly, but allow anchors from back buttons

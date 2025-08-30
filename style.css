@@ -319,6 +319,18 @@ section {
   body.menu-open {
     overflow: hidden;
   }
+
+  /* Use FA icon for hamburger, hide line-based span if present */
+  .menu-toggle i {
+    color: var(--white);
+    font-size: 22px;
+    line-height: 1;
+  }
+  .menu-toggle .hamburger { display: none !important; }
+
+  /* Unify mobile brand look across pages */
+  .logo-img { display: none !important; }
+  .logo-text { font-size: 1.1rem !important; font-weight: 700; }
 }
 
 /* ===== HERO SECTION ===== */
@@ -1922,5 +1934,4 @@ textarea.form-control {
     display: none !important;
   }
 }
-
 
