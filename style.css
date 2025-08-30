@@ -202,6 +202,8 @@ section {
 
 /* ===== MOBILE NAVIGATION ===== */
 @media (max-width: 768px) {
+  /* Use a single mobile navbar across pages */
+  .hero-mobile-header, #stickyMobileHeader { display: none !important; }
   .menu-toggle {
     display: block !important;
     position: relative;
@@ -1934,4 +1936,3 @@ textarea.form-control {
     display: none !important;
   }
 }
-

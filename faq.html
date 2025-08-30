@@ -14,37 +14,17 @@
 <body>
   <!-- Navbar -->
   <script>
+    // Ensure navbar is present immediately
+    if (window.__insertFallbackNavbar) window.__insertFallbackNavbar();
     fetch('navbar.html')
-      .then(response => response.text())
-      .then(data => {
-        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-        
-        // Initialize beautiful animated hamburger menu
-        setTimeout(() => {
-          const hamburger = document.querySelector('.hero-hamburger') || document.querySelector('.menu-toggle');
-          console.log('Hamburger element found:', hamburger); // Debug log
-          if (hamburger) {
-            hamburger.addEventListener('click', function() {
-              console.log('Hamburger clicked!'); // Debug log
-              createAnimatedMenu();
-            });
-          } else {
-            console.log('Hamburger button not found! Trying again...'); // Debug log
-            // Try again after a longer delay
-            setTimeout(() => {
-              const hamburger2 = document.querySelector('.menu-toggle');
-              console.log('Second attempt - Hamburger found:', hamburger2);
-              if (hamburger2) {
-                hamburger2.addEventListener('click', function() {
-                  console.log('Hamburger clicked on second attempt!');
-                  createAnimatedMenu();
-                });
-              }
-            }, 1000);
-          }
-        }, 500);
+      .then(r => r.text())
+      .then(html => {
+        if (!document.querySelector('nav.navbar')) {
+          document.body.insertAdjacentHTML('afterbegin', html);
+        }
+        document.dispatchEvent(new Event('navbarLoaded'));
       })
-      .catch(error => { console.error('Error loading navbar:', error); if (window.__insertFallbackNavbar) window.__insertFallbackNavbar(); });
+      .catch(err => { console.error('Error loading navbar:', err); if (window.__insertFallbackNavbar) window.__insertFallbackNavbar(); });
 
     function createAnimatedMenu() {
       // Remove existing menu if present
@@ -696,13 +676,7 @@
         document.dispatchEvent(new Event('navbarLoaded'));
       }
       window.__insertFallbackNavbar = insertFallbackNavbar;
-      if (window.location.protocol === 'file:') {
-        insertFallbackNavbar();
-      } else {
-        setTimeout(function() {
-          if (!document.querySelector('nav.navbar')) insertFallbackNavbar();
-        }, 250);
-      }
+      if (!document.querySelector('nav.navbar')) insertFallbackNavbar();
     })();
   </script>
   <script>
