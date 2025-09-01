@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritah Ongachi - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="ritah-ongachi.jpg" alt="Ritah Ongachi">
+      </div>
+      <div class="profile-content">
+        <h1>Ritah Ongachi</h1>
+        <p class="role">Kenya Chapter Vice President</p>
+        <div class="profile-bio">
+          <p>Medical Student | Vice President of Capacity Building, MSAKE | IFMSA Certified Trainer for New Trainers | Founder, St. James Youth Friendly Initiative</p>
+          <p>I am a dedicated medical student at Uzima University, passionate about advancing healthcare education and youth empowerment. As the Vice President of Capacity Building for the Medical Students Associations of Kenya, I represent 14 medical schools, leading initiatives to enhance leadership, governance, and professional skills among medical students. My role involves designing and implementing training programs, fostering collaboration with IFMSA Standing Committees, and integrating global health perspectives to strengthen Kenya’s future healthcare workforce.</p>
+          <p>As a certified Trainer for New Trainers (TNT) under the International Federation of Medical Students’ Associations, I deliver vital soft skill sessions and facilitate workshops that equip medical students with critical skills in research, advocacy, and leadership.</p>
+          <p>My commitment to capacity building extends beyond academia through my role as the founder of St. James Youth Friendly Initiative, a community-based organization focused on empowering youth. The initiative drives impactful projects in Sexual and Reproductive Health and Rights, raising awareness and advocating for solutions to challenges facing young people in Kenya. With expertise in public speaking, social media management, and program coordination, I am driven to create equitable opportunities for medical students and youth, fostering transformative change in healthcare and community development. My vision is to bridge local and global health initiatives, ensuring sustainable impact through innovation and collaboration.</p>
+        </div>
+        <a href="about.html#kenya-chapter" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+

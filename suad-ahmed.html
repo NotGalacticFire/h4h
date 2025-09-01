@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suad Ahmed - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="suad-ahmed.jpg" alt="Suad Ahmed">
+      </div>
+      <div class="profile-content">
+        <h1>Suad Ahmed</h1>
+        <p class="role">Kenya Chapter Deputy Finance Director</p>
+        <div class="profile-bio">
+          <p>Suad Ahmed is a dedicated fourth-year medical student at Uzima University, known for her strong background in student leadership and her unwavering commitment to healthcare advocacy. Her impactful journey through medicine has been shaped by a deep passion for mental wellness, women’s health, and community outreach.</p>
+          <p>Suad’s interest in healthcare advocacy began early. In high school, she served as a student leader in the Guidance and Counselling department, where she supported peers and promoted mental well-being. This experience sparked a lasting interest in mental health and laid the groundwork for her future initiatives in medical school.</p>
+          <p>At Uzima University, Suad has continued to champion mental wellness. As a local officer in the university’s Mental Health Department (SCOMH), she played a key role in raising awareness about mental health issues, reducing stigma, and advocating for better support systems for medical students — a population particularly vulnerable to stress and burnout.</p>
+          <p>Her advocacy extends beyond mental health. Suad has been actively involved in promoting women’s reproductive health, participating in numerous campus and community initiatives focused on menstrual hygiene, reproductive rights, and improving access to healthcare for women and girls. Her efforts reflect a holistic approach to healthcare that addresses both physical and social determinants of health.</p>
+          <p>In addition to her advocacy work, Suad has participated in several medical camps organized by the university and other organizations. These camps provide free medical services to underserved communities, offering essential care to those who might otherwise go without. Her involvement in these initiatives underscores her dedication to service and her commitment to health equity.</p>
+          <p>Suad’s leadership, compassion, and determination continue to shape her journey as a future medical professional. She remains steadfast in her mission to improve lives through advocacy, education, and clinical care — with a special focus on mental wellness and women's health.</p>
+        </div>
+        <a href="about.html#kenya-chapter" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+

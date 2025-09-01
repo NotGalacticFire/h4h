@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ian Mwita - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="ian-mwita.jpg" alt="Ian Mwita">
+      </div>
+      <div class="profile-content">
+        <h1>Ian Mwita</h1>
+        <p class="role">Kenya Chapter President</p>
+        <div class="profile-bio">
+          <p>Ian is a Bachelor of Medicine and Bachelor of Surgery (MBChB) student from Nairobi, Kenya, with a strong passion for medical education, research, and humanitarian services. He is the founder of the Kenya Chapter of Hearts for Healing, a global NGO dedicated to supporting underserved communities through donations and healthcare initiatives. Currently, he serves as the Research Director at Sanitae Vitae—a youth-led nonprofit organization promoting medical education, research and art—and as a Public Relations and Communication Assistant in the Capacity Building team at the National Secretariat Board of the Medical Students Association of Kenya (MSAKE). He’s also the Research Adviser at The Bio Aesthetic, and the Director of Professional Development at the Rotaract Club of Uzima University.</p>
+          <p>He is establishing the Kenya Chapter of Hearts for Healing with the mission of extending compassion through healthcare support, education, donations, and hope to vulnerable and underserved communities. His long-term goal is to pursue a highly competitive residency in Plastic and Reconstructive Surgery, where he aspires to combine clinical excellence with research and humanitarian service—restoring hope, function, and dignity to patients.</p>
+        </div>
+        <a href="about.html#kenya-chapter" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reuben Chacha - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="reuben-chacha.jpg" alt="Reuben Chacha">
+      </div>
+      <div class="profile-content">
+        <h1>Reuben Chacha</h1>
+        <p class="role">Kenya Chapter Secretary General</p>
+        <div class="profile-bio">
+          <p>Chacha is a 4th-year MBChB student with a strong commitment to advancing healthcare both in clinical practice and through public health initiatives. Currently, Chacha serves on the National Executive Board Standing Committee of Public Health as a Capacity Building Development Assistant, under Medical Students Association of Kenya, contributing to strengthening programs that empower communities and health systems.</p>
+          <p>As a sexual and reproductive health advocate, Chacha is passionate about promoting awareness, access, and equity in SRHR services. Chacha’s research interests extend to the role at Bioaesthetics, where Chacha explores innovative intersections between science and healthcare.</p>
+          <p>Beyond medicine, Chacha is deeply enthusiastic about tech-driven solutions, especially how digital innovations can bridge gaps in healthcare access, education, and delivery. Chacha’s goal is to merge medicine, public health, and technology to create impactful, scalable solutions that improve lives.</p>
+        </div>
+        <a href="about.html#kenya-chapter" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
