@@ -492,6 +492,11 @@ section {
   gap: 2rem;
 }
 
+/* Improve in-page anchor scrolling to cards (offset for sticky navbar) */
+.team-card[id^="member-"] {
+  scroll-margin-top: 90px;
+}
+
 .team-card {
   position: relative;
   background: var(--white);
