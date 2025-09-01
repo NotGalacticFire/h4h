@@ -1718,13 +1718,26 @@ textarea.form-control {
 
 }
 
-.btn-small:hover,
-.btn-small:focus {
-  background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
-  box-shadow: 0 6px 20px rgba(255, 106, 0, 0.6);
-  transform: translateY(-2px);
-  outline: none;
-}
+  .btn-small:hover,
+  .btn-small:focus {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+    box-shadow: 0 6px 20px rgba(255, 106, 0, 0.6);
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  /* Make long email buttons readable on mobile */
+  .social-card a.btn.btn-small[href^="mailto:"] {
+    display: block;
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    white-space: normal;          /* allow wrapping */
+    overflow-wrap: anywhere;      /* break long strings */
+    word-break: break-word;       /* ensure breaks if needed */
+    text-align: center;
+  }
 
 }
 
@@ -1803,9 +1816,6 @@ textarea.form-control {
   width: fit-content;
   margin: 2rem auto 0;
   text-align: center;
-}play: block;
-  margin: 1rem auto 0;  /* top‑space plus centered horizontally */
-  float: none;          /* cancel any floats, if present */
 }
 
 /* --- Mobile styles: basic responsive starter --- */
@@ -1920,6 +1930,28 @@ textarea.form-control {
   width: 60px;
   height: 60px;
   border-radius: 1rem;
+}
+
+/* Fallback mobile layout for profile pages (in case style-mobile.css isn't loaded) */
+@media (max-width: 768px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  .profile-image {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .profile-image img {
+    height: auto;
+    max-width: 320px;
+  }
+  .profile-content {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Display contact rectangles in a grid format on Contact Us page */

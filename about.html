@@ -166,9 +166,21 @@
       margin-top: 1rem;
       margin-bottom: 2rem;
     }
+
+    /* Mobile-only refinements for About page to reduce cramped feel */
+    @media (max-width: 768px) {
+      body.about-page .container { padding: 0 1rem; }
+      body.about-page .chapters-section { padding: 3.5rem 0; }
+      body.about-page .team-grid { gap: 2.5rem; }
+      body.about-page .team-card { padding: 1.75rem 1.25rem; }
+      body.about-page .section-title { font-size: 1.75rem; }
+      body.about-page .section-subtitle { font-size: 1rem; line-height: 1.6; padding: 0 0.5rem; }
+      body.about-page .chapter-pill { font-size: 1.1rem; padding: 0.5em 1.6em; }
+      body.about-page p { line-height: 1.75; }
+    }
   </style>
 </head>
-<body>
+<body class="about-page">
 
   <!-- Navbar -->
   <script>
@@ -691,7 +703,7 @@
           <!-- Simar Vanvari -->
           <div class="team-card">
             <a href="simar-vanvari.html" class="team-image-link">
-              <img src="simar-vanvari.jpg" alt="Simar Vanvari">
+              <img src="Simar-Vanvari.jpg" alt="Simar Vanvari">
             </a>
             <div class="team-info">
               <h3>Simar Vanvari</h3>
@@ -959,6 +971,51 @@
             <h3>Vi Nguyen</h3>
             <p class="role">Outreach Officer</p>
             <a href="vi-nguyen.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scarsdale, New York Chapter -->
+    <div id="scarsdale-chapter" class="chapter-group">
+      <div class="chapter-divider top"></div>
+      <h3 class="chapter-title"><span class="chapter-pill">Scarsdale, New York</span></h3>
+      <div class="chapter-divider bottom"></div>
+      <div class="team-grid"> <!-- Using the same grid as team cards -->
+        <!-- President -->
+        <div class="team-card">
+          <a href="wentao-he.html" class="team-image-link">
+            <img src="wentao-he.jpg" alt="Scarsdale, New York Chapter President">
+          </a>
+          <div class="team-info">
+            <h3>Wentao He</h3>
+            <p class="role">President</p>
+            <a href="wentao-he.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Co-President -->
+        <div class="team-card">
+          <a href="max-gao.html" class="team-image-link">
+            <img src="max-gao.png" alt="Scarsdale, New York Chapter Co-President">
+          </a>
+          <div class="team-info">
+            <h3>Max Gao</h3>
+            <p class="role">Co-President</p>
+            <a href="max-gao.html" class="btn btn-small">View Profile</a>
+          </div>
+        </div>
+
+        <!-- Outreach Director -->
+        <div class="team-card">
+          <a href="marcos-winfrey.html" class="team-image-link">
+            <img src="marcos-winfrey.jpg" alt="Scarsdale, New York Chapter Outreach Director" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+          </a>
+          <div class="team-info">
+            <h3>Marcos Winfrey</h3>
+            <p class="role">Outreach Director</p>
+            <a href="marcos-winfrey.html" class="btn btn-small">View Profile</a>
           </div>
         </div>
 
