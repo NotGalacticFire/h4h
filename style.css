@@ -530,6 +530,28 @@ section {
   object-position: top;
 }
 
+/* Avoid cropping on Lawrenceville, Georgia cards */
+#lawrenceville-chapter .team-image-link img[src="tiffany-guo.jpg"],
+#lawrenceville-chapter .team-image-link img[src="vi-nguyen.jpg"] {
+  object-position: top;
+}
+
+/* Nudge Vi Nguyen slightly higher without cutting off */
+#lawrenceville-chapter .team-image-link img[src="vi-nguyen.jpg"] {
+  object-position: 50% 60%;
+}
+
+/* Also adjust profile pages for these images */
+.profile-image img[src="tiffany-guo.jpg"],
+.profile-image img[src="vi-nguyen.jpg"] {
+  object-position: top;
+}
+
+/* Profile image fine-tune for Vi Nguyen */
+.profile-image img[src="vi-nguyen.jpg"] {
+  object-position: 50% 60%;
+}
+
 /* Fine-tune Morgan Ahidi crop so face is centered slightly higher */
 #kenya-chapter .team-image-link img[src="morgan-ahidi.jpg"] {
   object-position: 50% 65%;

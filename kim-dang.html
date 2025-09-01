@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kim Dang - Hearts for Healing</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+
+  <main class="team-profile">
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="kim-dang.jpg" alt="Kim Dang">
+      </div>
+      <div class="profile-content">
+        <h1>Kim Dang</h1>
+        <p class="role">Lawrenceville, Georgia Chapter President</p>
+        <div class="profile-bio">
+          <p>Hey, I'm Kim Dang, and I'm a junior at Archer High School. Vietnamese is my first language, and learning English taught me how lonely it feels when the words won't come. I've always believed that the smallest act of kindness is worth more than the greatest intention.</p>
+          <p>From my perspective, I found out how effective it is to extend sympathy, offer compassion, consolation, and share a genuine smile. Joining Hearts for Healing provides me with the opportunity to demonstrate care to patients and communities in need.</p>
+          <p>I delight in music: V-pop, K-R&amp;B, and I have a soft spot for K-dramas. My goal is ubiquitous: help people feel seen, in whatever language the heart understands.</p>
+        </div>
+        <a href="about.html#lawrenceville-chapter" class="btn">
+          <i class="fas fa-arrow-left"></i> Back to Team
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
