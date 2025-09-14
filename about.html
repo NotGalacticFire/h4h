@@ -33,6 +33,16 @@
       margin: 0;
     }
 
+    /* Make all names on About page slightly smaller and uniform */
+    body.about-page .team-info h3,
+    body.about-page #meet-our-team .team-card h3 {
+      font-size: 1.35rem;        /* close to original, just slightly smaller */
+      white-space: normal;       /* allow wrapping */
+      overflow-wrap: anywhere;   /* break long names gracefully */
+      word-break: break-word;    /* ensure a break if needed */
+      line-height: 1.2;          /* keep multi-line compact but readable */
+    }
+
     /* Team Icon Styles for Our Teams Tab */
     .team-icon {
       font-size: 2.5rem;
@@ -735,7 +745,7 @@
             <div class="team-info">
               <h3>Hackensack Meridian</h3>
               <p class="role">Healthcare Partner</p>
-              <p></p>
+              <p>Partners since 2025.</p>
             </div>
           </div>
 
@@ -761,6 +771,17 @@
             </div>
           </div>
 
+          <div class="team-card">
+            <div class="partner-image-bg" style="background: #f2f7ff;">
+              <img src="iov-foundation.png" alt="IOV Foundation logo">
+            </div>
+            <div class="team-info">
+              <h3>IOV Foundation</h3>
+              <p class="role">Healthcare Partner</p>
+              <p>Partners since 2025.</p>
+            </div>
+          </div>
+
           
         </div>
       </div>
@@ -768,15 +789,6 @@
       <!-- Meet Our Team Tab Content -->
       <div id="meet-our-team" class="tab-content" style="display:none">
         <div class="team-grid">
-          <div class="team-card">
-            <div class="team-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3>Tech Team</h3>
-            <p>Web development, technical tools, and Discord management.</p>
-            <a href="tech-team.html" class="btn btn-small">View Tech Team</a>
-          </div>
-
           <div class="team-card">
             <div class="team-icon">
               <i class="fas fa-photo-video"></i>
@@ -793,6 +805,15 @@
             <h3>Management Team</h3>
             <p>Leadership, scheduling, and strategic planning.</p>
             <a href="management-team.html" class="btn btn-small">View Management Team</a>
+          </div>
+
+          <div class="team-card">
+            <div class="team-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3>Outreach Team</h3>
+            <p>Partnerships, hospital outreach, and chapter growth.</p>
+            <a href="outreach-team.html" class="btn btn-small">View Outreach Team</a>
           </div>
         </div>
       </div>
@@ -1289,6 +1310,398 @@
 
      </div>
    </div>
+
+  <!-- Auto-added chapters from applications -->
+  <!-- BEGIN: Generated Chapter Groups -->
+  <!-- Abu Dhabi, United Arab Emirates Chapter -->
+  <!--
+  <div id="yashvi-shah-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Abu Dhabi, United Arab Emirates</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-yashvi-shah" class="team-card">
+        <a href="yashvi-shah.html" class="team-image-link">
+          <img src="yashvi-shah.jpg" alt="Yashvi Shah" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Yashvi Shah</h3>
+          <p class="role">Founder</p>
+          <a href="yashvi-shah.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Basking Ridge, New Jersey Chapter -->
+  <!--
+  <div id="upender-kapoor-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Basking Ridge, New Jersey</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-upender-kapoor" class="team-card">
+        <a href="upender-kapoor.html" class="team-image-link">
+          <img src="upender-kapoor.jpg" alt="Upender Kapoor" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Upender Kapoor</h3>
+          <p class="role">Founder</p>
+          <a href="upender-kapoor.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Boston, Massachusetts Chapter -->
+  <!--
+  <div id="devangi-bhargava-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Boston, Massachusetts</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-devangi-bhargava" class="team-card">
+        <a href="devangi-bhargava.html" class="team-image-link">
+          <img src="devangi-bhargava.jpg" alt="Devangi Bhargava" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Devangi Bhargava</h3>
+          <p class="role">Founder</p>
+          <a href="devangi-bhargava.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Brownsville, Texas Chapter -->
+  <!--
+  <div id="camila-garcia-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Brownsville, Texas</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-camila-garcia" class="team-card">
+        <a href="camila-garcia.html" class="team-image-link">
+          <img src="camila-garcia.jpg" alt="Camila Garcia" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Camila Garcia</h3>
+          <p class="role">Founder</p>
+          <a href="camila-garcia.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Buffalo Grove/Lincolnshire, Illinois Chapter -->
+  <!--
+  <div id="kavin-kalyanasundaram-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Buffalo Grove/Lincolnshire, Illinois</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-kavin-kalyanasundaram" class="team-card">
+        <a href="kavin-kalyanasundaram.html" class="team-image-link">
+          <img src="kavin-kalyanasundaram.jpg" alt="Kavin Kalyanasundaram" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Kavin Kalyanasundaram</h3>
+          <p class="role">Founder</p>
+          <a href="kavin-kalyanasundaram.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Charlotte, North Carolina Chapter -->
+  <!--
+  <div id="anish-meruva-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Charlotte, North Carolina</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-anish-meruva" class="team-card">
+        <a href="anish-meruva.html" class="team-image-link">
+          <img src="anish-meruva.jpg" alt="Anish Meruva" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Anish Meruva</h3>
+          <p class="role">Founder</p>
+          <a href="anish-meruva.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Chatfield, Minnesota Chapter -->
+  <!--
+  <div id="makayla-anderson-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Chatfield, Minnesota</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-makayla-anderson" class="team-card">
+        <a href="makayla-anderson.html" class="team-image-link">
+          <img src="makayla-anderson.jpg" alt="Makayla Anderson" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Makayla Anderson</h3>
+          <p class="role">Founder</p>
+          <a href="makayla-anderson.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Santa Catarina, Brazil Chapter -->
+  <div id="davi-marco-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Santa Catarina, Brazil</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-davi-marco" class="team-card">
+        <a href="davi-marco.html" class="team-image-link">
+          <img src="davi-marco.jpg" alt="Davi Corrêa Marco" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Davi Corrêa Marco</h3>
+          <p class="role">Founder</p>
+          <a href="davi-marco.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ghaziabad, India Chapter -->
+  <div id="reeshika-bhatia-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Ghaziabad, India</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-reeshika-bhatia" class="team-card">
+        <a href="reeshika-bhatia.html" class="team-image-link">
+          <img src="reeshika-bhatia.jpg" alt="Reeshika Bhatia" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Reeshika Bhatia</h3>
+          <p class="role">Founder</p>
+          <a href="reeshika-bhatia.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Giza, Egypt Chapter -->
+  <!--
+  <div id="hend-eissa-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Giza, Egypt</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-hend-eissa" class="team-card">
+        <a href="hend-eissa.html" class="team-image-link">
+          <img src="hend-eissa.jpg" alt="Hend Wael Talaat Eissa" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Hend Wael Talaat Eissa</h3>
+          <p class="role">Founder</p>
+          <a href="hend-eissa.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Middleton, Wisconsin Chapter -->
+  <!--
+  <div id="akankshya-swain-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Middleton, Wisconsin</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-akankshya-swain" class="team-card">
+        <a href="akankshya-swain.html" class="team-image-link">
+          <img src="akankshya-swain.jpg" alt="Akankshya Swain" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Akankshya Swain</h3>
+          <p class="role">Founder</p>
+          <a href="akankshya-swain.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Panipat, India Chapter -->
+  <div id="saayna-deshwal-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Panipat, India</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-saayna-deshwal" class="team-card">
+        <a href="saayna-deshwal.html" class="team-image-link">
+          <img src="saayna-deshwal.jpg" alt="Saayna Deshwal" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Saayna Deshwal</h3>
+          <p class="role">Founder</p>
+          <a href="saayna-deshwal.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parsippany, New Jersey Chapter -->
+  <!--
+  <div id="aiman-mohammed-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Parsippany, New Jersey</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-aiman-mohammed" class="team-card">
+        <a href="aiman-mohammed.html" class="team-image-link">
+          <img src="aiman-mohammed.jpg" alt="Aiman Nawaz Mohammed" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Aiman Nawaz Mohammed</h3>
+          <p class="role">Founder</p>
+          <a href="aiman-mohammed.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Plainsboro, New Jersey Chapter -->
+  <div id="diya-suresh-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Plainsboro, New Jersey</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-diya-suresh" class="team-card">
+        <a href="diya-suresh.html" class="team-image-link">
+          <img src="diya-suresh.jpg" alt="Diya Suresh" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Diya Suresh</h3>
+          <p class="role">Founder</p>
+          <a href="diya-suresh.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pleasanton, California Chapter -->
+  <div id="tanvi-gundapi-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Pleasanton, California</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-tanvi-gundapi" class="team-card">
+        <a href="tanvi-gundapi.html" class="team-image-link">
+          <img src="tanvi-gundapi.jpg" alt="Tanvi Gundapi" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Tanvi Gundapi</h3>
+          <p class="role">Founder</p>
+          <a href="tanvi-gundapi.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pune, India Chapter -->
+  <!--
+  <div id="vedant-patil-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Pune, India</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-vedant-patil" class="team-card">
+        <a href="vedant-patil.html" class="team-image-link">
+          <img src="vedant-patil.jpg" alt="Vedant Patil" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Vedant Patil</h3>
+          <p class="role">Founder</p>
+          <a href="vedant-patil.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Qalubiya, Egypt Chapter -->
+  <!--
+  <div id="hanin-ahmed-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Qalubiya, Egypt</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-hanin-ahmed" class="team-card">
+        <a href="hanin-ahmed.html" class="team-image-link">
+          <img src="hanin-ahmed.jpg" alt="Hanin Ahmed" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Hanin Ahmed</h3>
+          <p class="role">Founder</p>
+          <a href="hanin-ahmed.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <!-- Reseda, California Chapter -->
+  <!--
+  <div id="dongha-kim-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Reseda, California</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-dongha-kim" class="team-card">
+        <a href="dongha-kim.html" class="team-image-link">
+          <img src="dongha-kim.jpg" alt="Dongha Kim" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Dongha Kim</h3>
+          <p class="role">Founder</p>
+          <a href="dongha-kim.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+
+  
+
+  <!-- Solon, Ohio Chapter -->
+  <div id="anushka-pagare-chapter" class="chapter-group">
+    <div class="chapter-divider top"></div>
+    <h3 class="chapter-title"><span class="chapter-pill">Solon, Ohio</span></h3>
+    <div class="chapter-divider bottom"></div>
+    <div class="team-grid">
+      <div id="member-anushka-pagare" class="team-card">
+        <a href="anushka-pagare.html" class="team-image-link">
+          <img src="anushka-pagare.jpg" alt="Anushka Pagare" onerror="this.onerror=null; this.src='Hearts for healing .jpg'; this.style.objectFit='contain';">
+        </a>
+        <div class="team-info">
+          <h3>Anushka Pagare</h3>
+          <p class="role">Founder</p>
+          <a href="anushka-pagare.html" class="btn btn-small">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END: Generated Chapter Groups -->
 
 </section>
 
