@@ -35,6 +35,36 @@
       width: 300px;
     }
 
+    /* Stats strip */
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin: 2.5rem auto 0;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+    .stat {
+      flex: 0 1 auto;
+      text-align: center;
+      padding: 0.25rem 0.5rem;
+    }
+    .stat .value {
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      line-height: 1.05;
+      font-weight: 800;
+      color: var(--primary, #e85d8e);
+      margin-bottom: 0.35rem;
+    }
+    .stat .label {
+      font-size: 1.05rem;
+      color: var(--text, #444);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      opacity: 0.95;
+    }
+
     /* Hero Section - Perfect Centering for ALL Devices */
     .hero {
       position: relative;
@@ -579,6 +609,18 @@
       <div class="centered-container">
         <h2>Our Purpose</h2>
         <p>As a group of high schoolers passionate about spreading healthcare awareness through interactions with individuals in need, we provide small yet meaningful support and have established this nonprofit organization. As a part of this organization, our main focus is: donating hygiene products, handmade gifts, cards, letters, and flowers to spread positivity and make a difference for patients. Our goal is to partner with helping centers and members across united states and expand to provide support by brightening the days of patients.</p>
+      </div>
+
+      <!-- Snapshot Stats -->
+      <div class="stats-grid">
+        <div class="stat animate-on-scroll">
+          <div class="value">21</div>
+          <div class="label">Chapters</div>
+        </div>
+        <div class="stat animate-on-scroll delay-1">
+          <div class="value">366</div>
+          <div class="label">Members</div>
+        </div>
       </div>
       
       <!-- Mission Cards Section -->
