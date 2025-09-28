@@ -555,6 +555,11 @@ section {
   object-position: 50% 0%;
 }
 
+/* Keep Omorinsola centered in Atlanta chapter */
+#atlanta-chapter #member-omorinsola-babalola .team-image-link img {
+  object-position: 50% 15%;
+}
+
 /* Adjust Basking Ridge portraits */
 #basking-ridge-chapter #member-ishani-malik .team-image-link img {
   object-position: 50% 0%;
