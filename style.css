@@ -550,6 +550,11 @@ section {
   object-position: 50% 35%;
 }
 
+/* Ensure Zainab Usman isn’t cropped */
+#zainab-usman-chapter #member-zainab-usman .team-image-link img {
+  object-position: 50% 0%;
+}
+
 /* Avoid cropping on Lawrenceville, Georgia cards */
 #lawrenceville-chapter .team-image-link img[src="tiffany-guo.jpg"],
 #lawrenceville-chapter .team-image-link img[src="vi-nguyen.jpg"] {
