@@ -555,6 +555,16 @@ section {
   object-position: 50% 0%;
 }
 
+/* Adjust Basking Ridge portraits */
+#basking-ridge-chapter #member-ishani-malik .team-image-link img {
+  object-position: 50% 0%;
+}
+
+#basking-ridge-chapter #member-diya-suresh-br .team-image-link img,
+#diya-suresh-chapter #member-diya-suresh .team-image-link img {
+  object-position: 50% 35%;
+}
+
 /* Avoid cropping on Lawrenceville, Georgia cards */
 #lawrenceville-chapter .team-image-link img[src="tiffany-guo.jpg"],
 #lawrenceville-chapter .team-image-link img[src="vi-nguyen.jpg"] {
