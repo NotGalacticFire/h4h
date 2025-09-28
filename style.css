@@ -535,6 +535,21 @@ section {
   object-position: top;
 }
 
+/* Keep Brownsville coordinators framed correctly */
+#camila-garcia-chapter #member-annapaula-melissa .team-image-link img {
+  object-position: 50% 80%;
+}
+
+/* Reveal Valentina’s head in grid cards */
+#camila-garcia-chapter #member-valentina-cruz-moral .team-image-link img {
+  object-position: 50% 20%;
+}
+
+/* Restore Camila Garcia’s headroom */
+#camila-garcia-chapter #member-camila-garcia .team-image-link img {
+  object-position: 50% 35%;
+}
+
 /* Avoid cropping on Lawrenceville, Georgia cards */
 #lawrenceville-chapter .team-image-link img[src="tiffany-guo.jpg"],
 #lawrenceville-chapter .team-image-link img[src="vi-nguyen.jpg"] {

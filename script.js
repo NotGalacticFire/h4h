@@ -40,6 +40,7 @@ function runInit() {
     initNavbar();
     highlightCurrentPage();
     initAnimations();
+    initHeroStatCounters();
     initForms();
     initDarkMode();
     initScrollToTop();
@@ -173,6 +174,70 @@ function initAnimations() {
     });
   } catch (error) {
     console.error('Animation initialization failed:', error);
+  }
+}
+
+function initHeroStatCounters() {
+  try {
+    const container = document.querySelector('.hero-stats');
+    if (!container) return;
+
+    const counters = Array.from(container.querySelectorAll('[data-countup-target]'));
+    if (!counters.length) return;
+
+    const duration = 2000; // milliseconds; shared duration keeps finish synchronized
+    let started = false;
+
+    const startCounting = () => {
+      if (started) return;
+      started = true;
+
+      const targets = counters.map(el => {
+        const targetAttr = el.getAttribute('data-countup-target');
+        const parsed = parseInt(targetAttr, 10);
+        const target = Number.isFinite(parsed) ? parsed : parseInt(el.textContent.replace(/[^0-9]/g, ''), 10) || 0;
+        el.textContent = '0';
+        return target;
+      });
+
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        counters.forEach((el, index) => {
+          const target = targets[index];
+          const value = Math.round(target * progress);
+          el.textContent = value.toLocaleString('en-US');
+        });
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          counters.forEach((el, index) => {
+            el.textContent = targets[index].toLocaleString('en-US');
+          });
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startCounting();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+
+      observer.observe(container);
+    } else {
+      startCounting();
+    }
+  } catch (error) {
+    console.error('Hero stat animation failed:', error);
   }
 }
 
