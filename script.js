@@ -192,12 +192,13 @@ function initHeroStatCounters() {
       if (started) return;
       started = true;
 
-      const targets = counters.map(el => {
+      const configs = counters.map(el => {
         const targetAttr = el.getAttribute('data-countup-target');
         const parsed = parseInt(targetAttr, 10);
         const target = Number.isFinite(parsed) ? parsed : parseInt(el.textContent.replace(/[^0-9]/g, ''), 10) || 0;
-        el.textContent = '0';
-        return target;
+        const suffix = el.getAttribute('data-countup-suffix') || '';
+        el.textContent = suffix ? `0${suffix}` : '0';
+        return { target, suffix };
       });
 
       const startTime = performance.now();
@@ -205,16 +206,17 @@ function initHeroStatCounters() {
       const tick = (now) => {
         const progress = Math.min((now - startTime) / duration, 1);
         counters.forEach((el, index) => {
-          const target = targets[index];
+          const { target, suffix } = configs[index];
           const value = Math.round(target * progress);
-          el.textContent = value.toLocaleString('en-US');
+          el.textContent = `${value.toLocaleString('en-US')}${suffix}`;
         });
 
         if (progress < 1) {
           requestAnimationFrame(tick);
         } else {
           counters.forEach((el, index) => {
-            el.textContent = targets[index].toLocaleString('en-US');
+            const { target, suffix } = configs[index];
+            el.textContent = `${target.toLocaleString('en-US')}${suffix}`;
           });
         }
       };
