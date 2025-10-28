@@ -560,6 +560,30 @@ section {
   object-position: 50% 15%;
 }
 
+/* Make sure Charlotte, NC faces stay fully visible */
+#charlotte-chapter #member-hasini-r .team-image-link img,
+#charlotte-chapter #member-abhi-jandyala .team-image-link img,
+#charlotte-chapter #member-abhinav-medisetty .team-image-link img,
+#charlotte-chapter #member-nikhith-medisetty .team-image-link img,
+#charlotte-chapter #member-shreyas-bhimireddy .team-image-link img,
+#charlotte-chapter #member-shlok-patel .team-image-link img,
+#charlotte-chapter #member-siddharth-tumati .team-image-link img,
+#charlotte-chapter #member-abhi-tolkala .team-image-link img {
+  object-position: top;
+}
+
+#charlotte-chapter #member-hasini-r .team-image-link img {
+  object-position: 50% 15%;
+}
+
+#charlotte-chapter #member-abhi-jandyala .team-image-link img {
+  object-position: 50% 12%;
+}
+
+#charlotte-chapter #member-siddharth-tumati .team-image-link img {
+  object-position: 50% 20%;
+}
+
 /* Adjust Basking Ridge portraits */
 #basking-ridge-chapter #member-ishani-malik .team-image-link img {
   object-position: 50% 0%;
@@ -585,6 +609,29 @@ section {
 .profile-image img[src="tiffany-guo.jpg"],
 .profile-image img[src="vi-nguyen.jpg"] {
   object-position: top;
+}
+
+.profile-image img[src="3.jpg"],
+.profile-image img[src="4.jpg"],
+.profile-image img[src="5.jpg"],
+.profile-image img[src="6.jpg"],
+.profile-image img[src="8.jpg"],
+.profile-image img[src="9.jpg"],
+.profile-image img[src="10.jpg"],
+.profile-image img[src="11.png"] {
+  object-position: top;
+}
+
+.profile-image img[src="4.jpg"] {
+  object-position: 50% 15%;
+}
+
+.profile-image img[src="5.jpg"] {
+  object-position: 50% 12%;
+}
+
+.profile-image img[src="11.png"] {
+  object-position: 50% 20%;
 }
 
 /* Profile image fine-tune for Vi Nguyen */
