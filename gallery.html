@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery - Hearts for Healing</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-mobile.css" media="only screen and (max-width: 768px)">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="gallery.css">
+  <script src="premium-menu.js"></script>
+</head>
+
+<body class="gallery-page">
+  <script>
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.body.insertAdjacentHTML('afterbegin', data);
+        setTimeout(() => {
+          const hamburger = document.querySelector('.hero-hamburger') || document.querySelector('.menu-toggle');
+          hamburger?.addEventListener('click', () => createAnimatedMenu());
+        }, 300);
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+  </script>
+
+  <main>
+    <section class="gallery-hero">
+      <div class="container gallery-hero-grid">
+        <div class="hero-copy">
+          <div class="gallery-pill">
+            <i class="fa-solid fa-camera-retro"></i>
+            Captured memories
+          </div>
+          <h1>Picture Gallery</h1>
+          <p class="lede">
+            Browse every captured moment from our chapters. Add photos to the gallery folder to feature them here.
+          </p>
+          <div class="hero-actions">
+            <a class="gallery-btn primary" href="#gallery-grid">
+              <i class="fa-solid fa-images"></i>
+              View the wall
+            </a>
+            <button class="gallery-btn ghost" id="shuffle-gallery">
+              <i class="fa-solid fa-shuffle"></i>
+              Shuffle layout
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-shell">
+          <div class="carousel-track" id="gallery-carousel"></div>
+          <button class="carousel-btn prev" aria-label="Previous photo">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" aria-label="Next photo">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery-grid">
+      <div class="container">
+        <div class="section-header">
+          <h2>Curated mosaic</h2>
+        </div>
+        <div class="masonry-grid" id="gallery-masonry"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="gallery-lightbox" id="gallery-lightbox">
+    <button class="lightbox-close" aria-label="Close photo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img id="lightbox-image" alt="Expanded gallery item">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script src="gallery.js" defer></script>
+  <script src="script.js"></script>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.body.insertAdjacentHTML('beforeend', data))
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+</body>
+
+</html>

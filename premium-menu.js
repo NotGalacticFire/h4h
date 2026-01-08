@@ -134,6 +134,41 @@ function createAnimatedMenu() {
           <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
         </a>
         
+        <a href="gallery.html" class="menu-item" style="
+          color: white; 
+          font-size: 1.3rem; 
+          font-weight: 600;
+          padding: 1.2rem 2rem; 
+          text-decoration: none; 
+          display: flex;
+          align-items: center;
+          background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+          border-radius: 15px;
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255,255,255,0.2);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transform: translateX(-50px);
+          opacity: 0;
+          animation: slideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+          animation-delay: 0.55s;
+        ">
+          <div style="
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+          "><i class="fas fa-images"></i></div>
+          <span style="flex: 1;">Gallery</span>
+          <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
+        </a>
+        
         <a href="get-involved.html" class="menu-item" style="
           color: white; 
           font-size: 1.3rem; 

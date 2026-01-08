@@ -560,6 +560,11 @@ section {
   object-position: 50% 15%;
 }
 
+/* Lower Angela Leo framing slightly */
+#atlanta-chapter #member-angela-leo .team-image-link img {
+  object-position: 50% 70%;
+}
+
 /* Make sure Charlotte, NC faces stay fully visible */
 #charlotte-chapter #member-hasini-r .team-image-link img,
 #charlotte-chapter #member-abhi-jandyala .team-image-link img,
@@ -609,6 +614,10 @@ section {
 .profile-image img[src="tiffany-guo.jpg"],
 .profile-image img[src="vi-nguyen.jpg"] {
   object-position: top;
+}
+
+.profile-image img[src="angela-leo.jpg"] {
+  object-position: 50% 70%;
 }
 
 .profile-image img[src="3.jpg"],
