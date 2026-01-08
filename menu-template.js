@@ -18,7 +18,7 @@ const menuScript = `
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 25%, #e85d8e 50%, #d53e9f 75%, #c23a8b 100%);
+        background: linear-gradient(135deg, #b24b5b 0%, #9b3a47 25%, #8c2f3a 50%, #7a1d2a 75%, #4b0c15 100%);
         z-index: 99999;
         display: flex;
         flex-direction: column;
@@ -29,7 +29,11 @@ const menuScript = `
         opacity: 0;
         transform: scale(0.9);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        box-sizing: border-box;
+        padding: 2.5rem 1.5rem;
       \`;
 
       menu.innerHTML = \`

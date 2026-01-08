@@ -45,7 +45,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 25%, #e85d8e 50%, #d53e9f 75%, #c23a8b 100%);
+        background: linear-gradient(135deg, #b24b5b 0%, #9b3a47 25%, #8c2f3a 50%, #7a1d2a 75%, #4b0c15 100%);
         z-index: 99999;
         display: flex;
         flex-direction: column;
@@ -56,7 +56,11 @@
         opacity: 0;
         transform: scale(0.9);
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        box-sizing: border-box;
+        padding: 2.5rem 1.5rem;
       \`;
 
       menu.innerHTML = \`
@@ -160,6 +164,41 @@
                 transition: all 0.3s ease;
               "><i class="fas fa-info-circle"></i></div>
               <span style="flex: 1;">About Us</span>
+              <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
+            </a>
+            
+            <a href="gallery.html" class="menu-item" style="
+              color: white; 
+              font-size: 1.3rem; 
+              font-weight: 600;
+              padding: 1.2rem 2rem; 
+              text-decoration: none; 
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+              border-radius: 15px;
+              backdrop-filter: blur(15px);
+              border: 1px solid rgba(255,255,255,0.2);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+              transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+              transform: translateX(-50px);
+              opacity: 0;
+              animation: slideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+              animation-delay: 0.55s;
+            ">
+              <div style="
+                width: 45px;
+                height: 45px;
+                background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 1rem;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+              "><i class="fas fa-images"></i></div>
+              <span style="flex: 1;">Gallery</span>
               <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
             </a>
             
@@ -387,7 +426,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(135deg, #ff4e7e 0%, #f45b7a 50%, #d53e9f 100%);
+        background: linear-gradient(135deg, #b24b5b 0%, #9b3a47 50%, #7a1d2a 100%);
         z-index: 99999;
         display: flex;
         flex-direction: column;
@@ -398,7 +437,11 @@
         opacity: 0;
         transform: scale(0.9);
         transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        box-sizing: border-box;
+        padding: 2.5rem 1.5rem;
       `;
       
       menu.innerHTML = `
@@ -427,13 +470,16 @@
             <a href="about.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.4s;">
               <span style="margin-right: 0.5rem;">ℹ️</span> About Us
             </a>
-            <a href="get-involved.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.5s;">
+            <a href="gallery.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.5s;">
+              <span style="margin-right: 0.5rem;">🖼️</span> Gallery
+            </a>
+            <a href="get-involved.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.6s;">
               <span style="margin-right: 0.5rem;">🤝</span> Get Involved
             </a>
-            <a href="contact.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.6s;">
+            <a href="contact.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.7s;">
               <span style="margin-right: 0.5rem;">📞</span> Contact
             </a>
-            <a href="faq.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.7s;">
+            <a href="faq.html" style="color: white; font-size: 1.3rem; padding: 1.2rem 2rem; text-decoration: none; display: block; background: rgba(255,255,255,0.1); border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6); transform: translateY(30px); opacity: 0; animation: slideUp 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards; animation-delay: 0.8s;">
               <span style="margin-right: 0.5rem;">❓</span> FAQ
             </a>
           </div>
@@ -665,6 +711,7 @@
     <ul class="nav-menu">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="about.html" class="nav-link">About Us</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
       <li><a href="get-involved.html" class="nav-link">Get Involved</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
       <li><a href="faq.html" class="nav-link">FAQ</a></li>

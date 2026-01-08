@@ -1,25 +1,25 @@
 /* ===== HEARTS FOR HEALING - COMPLETE STYLES ===== */
 :root {
   /* Primary Colors */
-  --primary: #E75480;       /* Main brand pink */
-  --primary-light: #FFB6C1; /* Light accent */
-  --primary-dark: #C2456D;  /* Darker shade */
+  --primary: #6D111E;       /* Main brand wine */
+  --primary-light: #D8A7AF; /* Light accent */
+  --primary-dark: #4B0C15;  /* Darker shade */
 
   /* Secondary Colors */
-  --secondary: #D35D6E;     /* Muted rose */
-  --secondary-light: #F8C8DC;/* Soft blush */
+  --secondary: #9B3A47;     /* Muted rose */
+  --secondary-light: #F1D6DA;/* Soft blush */
 
   /* Neutrals */
-  --light: #FFF0F5;         /* Background */
-  --dark: #5D3A3A;          /* Text/headings */
-  --text: #4A3A3A;          /* Body text */
+  --light: #F9EEF1;         /* Background */
+  --dark: #3F2227;          /* Text/headings */
+  --text: #4A2F33;          /* Body text */
   --white: #FFFFFF;
   --black: #1A1A1A;
 
   /* Effects */
-  --shadow-sm: 0 2px 8px rgba(215, 93, 110, 0.1);
-  --shadow-md: 0 5px 15px rgba(215, 93, 110, 0.2);
-  --shadow-lg: 0 10px 25px rgba(215, 93, 110, 0.3);
+  --shadow-sm: 0 2px 8px rgba(109, 17, 30, 0.1);
+  --shadow-md: 0 5px 15px rgba(109, 17, 30, 0.2);
+  --shadow-lg: 0 10px 25px rgba(109, 17, 30, 0.3);
 
   /* Transitions */
   --transition-fast: all 0.2s ease;
@@ -317,7 +317,7 @@ section {
     z-index: 4000;
     margin: 0;
     padding: 1.2rem 1.2rem 0.5rem 1.2rem;
-    background: var(--primary, #e25480);
+    background: var(--primary, #6d111e);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -401,7 +401,7 @@ section {
     display: none;
     flex-direction: column;
     width: 100vw;
-    background: var(--primary, #e25480);
+    background: var(--primary, #6d111e);
     position: absolute;
     top: 100%;
     left: 0;
@@ -422,7 +422,7 @@ section {
   }
   .mobile-links a:hover {
     background: #fff;
-    color: var(--primary, #e25480);
+    color: var(--primary, #6d111e);
   }
   .mobile-navbar {
     height: auto;
