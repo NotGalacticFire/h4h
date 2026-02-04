@@ -140,6 +140,7 @@ const menuScript = `
               <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
             </a>
 
+            <!--
             <a href="gallery.html" class="menu-item" style="
               color: white; 
               font-size: 1.3rem; 
@@ -174,6 +175,7 @@ const menuScript = `
               <span style="flex: 1;">Gallery</span>
               <div style="width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: all 0.3s ease;"></div>
             </a>
+            -->
             
             <a href="get-involved.html" class="menu-item" style="
               color: white; 
