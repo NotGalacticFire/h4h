@@ -131,8 +131,16 @@ function renderCarousel(images) {
   carouselIndex = 0;
   updateCarousel(track, dots, slides.length);
 
-  prevBtn?.addEventListener('click', () => goToSlide(carouselIndex - 1));
-  nextBtn?.addEventListener('click', () => goToSlide(carouselIndex + 1));
+  if (prevBtn) {
+    const freshPrev = prevBtn.cloneNode(true);
+    prevBtn.replaceWith(freshPrev);
+    freshPrev.addEventListener('click', () => goToSlide(carouselIndex - 1));
+  }
+  if (nextBtn) {
+    const freshNext = nextBtn.cloneNode(true);
+    nextBtn.replaceWith(freshNext);
+    freshNext.addEventListener('click', () => goToSlide(carouselIndex + 1));
+  }
 
   const shell = document.querySelector('.carousel-shell');
   shell?.addEventListener('mouseenter', pauseCarousel);
